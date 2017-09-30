@@ -1,0 +1,262 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+@import url('https://fonts.googleapis.com/css?family=Allura|Architects+Daughter|Damion|Homemade+Apple|Indie+Flower|Patrick+Hand+SC|Permanent+Marker|Reenie+Beanie|Rock+Salt|Sacramento|Shadows+Into+Light+Two');
+#scrumboard {
+    width: 100%;
+    min-height: 512px;
+    padding: 10px;
+}
+#isstory {
+    width: 25%;
+    height: inherit;
+    min-height: inherit;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+ }
+#isepic {
+    width: 25%;
+    height: inherit;
+    min-height: inherit;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+#sendtosprint {
+     width: 25%;
+     height: inherit;
+     min-height: inherit;
+     padding: 10px;
+     border: 1px solid #aaaaaa;
+     background: #d2d3d5;
+}
+#iscomplete {
+     width: 25%;
+     height: inherit;
+     min-height: inherit;
+     padding: 10px;
+     border: 1px solid #aaaaaa;
+}
+
+#activepbi {
+   width: 25%;
+   height: inherit;
+   min-height: inherit;
+   padding: 10px;
+   border: 1px solid #aaaaaa;
+   background: #d2d3d5;
+}
+#todo {
+    width: 25%;
+    height: inherit;
+    min-height: inherit;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+#inprogress {
+    width: 25%;
+    height: inherit;
+    min-height: inherit;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+#intesting {
+    width: 25%;
+    height: inherit;
+    min-height: inherit;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+#done {
+    width: 25%;
+    height: inherit;
+    min-height: inherit;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+
+.notebody {
+     background: #fdfd96;
+}
+
+.noteall {
+     width: 90%;
+     min-height: 300px;
+     padding: 15px 15px 15px 15px;
+     margin:10px 10px 10px 10px;
+     -webkit-box-shadow: 0 2px 12px rgba(0,0,0,.5);
+     -moz-box-shadow: 0 2px 12px rgba(0,0,0,.5);
+     box-shadow: 1px 2px 2px #000;
+}
+
+.yellownote {
+     background-color: #fdfd96;
+}
+.pinknote {
+     background-color: #ffd1dc;
+}
+.greennote {
+     background-color: #77dd77;
+}
+.bluenote {
+     background-color: #aec6cf;
+}
+
+.notewrinkled {
+     background-image: url("../partials/img/ClearWrinkledPaperTexture.png");
+}
+.sprintoverlay {
+     background-image: url("../partials/img/InSprint.png");
+     background-size: cover;
+     background-position: center;
+     -ms-transform: rotate(7deg); /* IE 9 */
+     -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
+     transform: rotate(7deg);
+}
+
+ .notebody-allura {
+     font-family: 'Allura', cursive;
+     font-size: 20px;
+ }
+ .notebody-architects-daughter {
+     font-family: 'Architects Daughter', cursive;
+     font-size: 20px;
+ }
+ .notebody-damion {
+     font-family: 'Damion', cursive;
+     font-size: 20px;
+ }
+ .notebody-homemade-apple {
+     font-family: 'Homemade Apple', cursive;
+     font-size: 20px;
+ }
+ .notebody-indie-flower {
+     font-family: 'Indie Flower', cursive;
+     font-size: 1em;
+ }
+ .smallbody-indie-flower {
+     font-family: 'Indie Flower', cursive;
+     font-size: .9em;
+ }
+ .bigbody-indie-flower {
+     font-family: 'Indie Flower', cursive;
+     font-size: 1.1em;
+ }
+ .notebody-patrick-hand-sc {
+     font-family: 'Patrick Hand SC', cursive;
+     font-size: 20px;
+ }
+ .notebody-permanent-marker {
+     font-family: 'Permanent Marker', cursive;
+     font-size: 1.2em;
+ }
+ .smallbody-permanent-marker {
+     font-family: 'Permanent Marker', cursive;
+     font-size: 1.1em;
+ }
+ .bigbody-permanent-marker {
+     font-family: 'Permanent Marker', cursive;
+     font-size: 1.3em;
+ }
+ .notebody-reenie-beanie {
+     font-family: 'Reenie Beanie', cursive;
+     font-size: 20px;
+ }
+ .notebody-rock-salt {
+     font-family: 'Rock Salt', cursive;
+     font-size: 20px;
+ }
+ .notebody-sacramento {
+     font-family: 'Sacramento', cursive;
+     font-size: 20px;
+ }
+ .notebody-shadows-into-light-two {
+     font-family: 'Shadows Into Light Two', cursive;
+     font-size: 20px;
+ }
+
+.smallsticky {
+    width: 85%;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+    font-family: 'Permanent Marker', cursive;
+ }
+.bigsticky {
+    width: 45%;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #aaaaaa;
+}
+.midsticky {
+    width: 29%;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+    margin: 10px;
+}
+ul.pagination li a {
+    color: rgba(0, 0 ,0 , 0.54);
+}
+
+ul.pagination li.active a {
+    background-color: #DCE47E;
+    color: #FFF;
+    font-weight: bold;
+    cursor: default;
+}
+ul.pagination .disabled:hover a {
+    background: none;
+}
+
+.paginator {
+    text-align: center;
+}
+
+.paginator ul.pagination li {
+    float: none;
+    display: inline-block;
+}
+
+.paginator p {
+    text-align: right;
+    color: rgba(0, 0 ,0 , 0.54);
+}
+.default-margin {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-right: 8px;
+    margin-left: 8px;
+}
+.underline {
+    text-align: center;
+    text-decoration: underline;
+}
+table .italic {
+    font-style: italic;
+}
+table .bold {
+    font-weight: bold;
+}
+table .underline {
+    text-decoration: underline;
+}
+
+.angletext {
+    -ms-transform: rotate(-45deg); /* IE 9 */
+    -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
+    transform: rotate(-45deg);
+}
+.so-noted {
+    font-style: italic;
+    font-size: .8em;
+}
+.priority-text {
+    text-decoration: underline;
+    font-size: .7em;
+}
+.fa:hover {
+    cursor: pointer;
+}
+.bluenote:hover, .greennote:hover, .yellownote:hover, .pinknote:hover {
+    cursor: -webkit-grab;
+}

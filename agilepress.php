@@ -774,7 +774,7 @@ add_action('save_post', __NAMESPACE__.'\\agilepress_save_attachment_meta_box');
  *
  * This function defines the form and function of the Sprint metabox.
  *
- * @param $post  The current post in The Loop.
+ * @param object $post  The current post in The Loop.
  * @return null
  *
  * @uses \vinlandmedia\agilepress\AgilePress_Meta::build_sprint_meta_box()
@@ -847,7 +847,7 @@ add_action('save_post', __NAMESPACE__.'\\agilepress_save_sprint_meta_box');
  *
  * This function defines the form and function of the Task metabox.
  *
- * @param $post  The current post in The Loop.
+ * @param object $post  The current post in The Loop.
  * @return null
  *
  * @uses \vinlandmedia\agilepress\AgilePress_Meta::build_task_meta_box()
@@ -932,7 +932,7 @@ add_action('save_post', __NAMESPACE__.'\\agilepress_save_task_meta_box');
  *
  * This function defines the form and function of the Story metabox.
  *
- * @param $post  The current post in The Loop.
+ * @param object $post  The current post in The Loop.
  * @return null
  *
  * @uses \vinlandmedia\agilepress\AgilePress_Meta::build_story_meta_box()
@@ -1712,6 +1712,7 @@ function do_wiz_response() {
 add_action( 'admin_post_nopriv_wizard_response', __NAMESPACE__ . '\\do_wiz_response' );
 add_action( 'admin_post_wizard_response', __NAMESPACE__ . '\\do_wiz_response' );
 
+
 /**
  * Model screen responses
  *
@@ -1829,7 +1830,6 @@ function do_modal_response() {
 					$new_task_product = sanitize_text_field($_POST["current_product"]);
 
 					$parent_post = get_post($passed_id);
-					$parent_post_meta = get_post_meta($passed_id, '_agilepress_story_data', true);
 
 					$myQuery = new AgilePress_Query();
 					$target_sprint = $myQuery->get_target_sprint($new_task_product);
@@ -1946,6 +1946,7 @@ function do_modal_response() {
 add_action( 'admin_post_nopriv_modal_response', __NAMESPACE__ . '\\do_modal_response' );
 add_action( 'admin_post_modal_response', __NAMESPACE__ . '\\do_modal_response' );
 
+
 function do_report_response() {
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -1960,6 +1961,7 @@ function do_report_response() {
 
 add_action( 'admin_post_nopriv_report_response', __NAMESPACE__ . '\\do_report_response' );
 add_action( 'admin_post_report_response', __NAMESPACE__ . '\\do_report_response' );
+
 
 /**
  * Display a custom taxonomy dropdown in admin
@@ -1985,6 +1987,7 @@ function filter_post_type_by_taxonomy($post_type, $which) {
 
 }
 
+
 function create_dropdown_list($taxonomy = null) {
 	$selected      = isset($_GET[$taxonomy]) ? $_GET[$taxonomy] : '';
 	$info_taxonomy = get_taxonomy($taxonomy);
@@ -2000,10 +2003,12 @@ function create_dropdown_list($taxonomy = null) {
 	));
 }
 
+
 function update_edit_form() {
     echo ' enctype="multipart/form-data"';
 }
 add_action('post_edit_form_tag', __NAMESPACE__ . '\\update_edit_form');
+
 
 function add_button($board_type = null, $product = null, $sprint = null) {
 	$url = get_permalink();
@@ -2058,6 +2063,7 @@ function add_button($board_type = null, $product = null, $sprint = null) {
 	return $button;
 }
 
+
 function excerpt_gettext($translation, $original, $domain)
 {
 	$post_type = get_post_type(get_the_ID());
@@ -2105,6 +2111,7 @@ function excerpt_gettext($translation, $original, $domain)
     return $translation;
 }
 add_filter('gettext', __NAMESPACE__ . '\\excerpt_gettext', 10, 3);
+
 
 function multisite_new_blog_added($blog_id, $user_id, $domain, $path, $site_id, $meta) {
 	$myActivator = new AgilePress_ActDeact;

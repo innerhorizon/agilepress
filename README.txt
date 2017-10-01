@@ -4,7 +4,7 @@ Donate link: https://agilepress.io/
 Tags: agile, scrum, kanban, task management, product management, project management, to-do
 Requires at least: 4.8
 Tested up to: 4.8.2
-Stable tag: 1.514.2
+Stable tag: 1.515.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -75,6 +75,9 @@ Now... get to work on that deck! (Or term paper, or software product, or whateve
 Thank you for choosing AgilePress!
 
 == Changelog ==
+
+= 1.515.2 =
+* Fixed some issues with sprint board display.
 
 = 1.514.2 =
 * For public users, Font Awesome icons (across bottom of notes) now only show when an action is available.

@@ -100,8 +100,8 @@ class AgilePress_Meta {
 
 		// start Parent Epic select box
 		$epics = $wpdb->get_results(
-			"select p.ID, p.post_title, p.post_name from " . $wpdb->posts . " p, " . $wpdb->postmeta . " m " .
-		   	"where p.post_type = 'agilepress-stories' and p.post_status = 'publish' " .
+			"select DISTINCT p.ID, p.post_title, p.post_name from " . $wpdb->posts . " p, " .
+			$wpdb->postmeta . " m " . "where p.post_type = 'agilepress-stories' and p.post_status = 'publish' " .
 			"and m.post_ID = p.ID and m.meta_key = '_agilepress_story_data' and m.meta_value like '%epic%'" .
 			"order by post_name");
 
@@ -241,6 +241,8 @@ class AgilePress_Meta {
 	 * @subpackage AgilePress\admin
 	 */
 	public function build_task_meta_box($agilepress_meta, $products, $sprints, $stories, $use_shortcodes) {
+		global $wpdb;
+
 		$task_post_id = get_the_ID();
 		$task_post_name = get_post_field('post_name', $task_post_id);
 
@@ -281,11 +283,17 @@ class AgilePress_Meta {
 		$task_metabox .= '</tr><tr>';
 
 		// start Parent Story select box
+		$parent_stories = $wpdb->get_results(
+			"select DISTINCT p.ID, p.post_title, p.post_name from " . $wpdb->posts . " p, " . $wpdb->postmeta . " m " .
+			"where p.post_type = 'agilepress-stories' and p.post_status = 'publish' " .
+			"and m.post_ID = p.ID and m.meta_key = '_agilepress_story_data' and m.meta_value like '%story%'" .
+			"order by post_name");
+
 		$task_metabox .= $this->meta_select_box(
 			'Parent Story',
 			'agilepress_task[parent_story]',
 			$agilepress_parent_story,
-			$stories,
+			$parent_stories,
 			null);
 		// end select box
 
@@ -560,12 +568,12 @@ class AgilePress_Meta {
 	    }
 		if ($dataset) {
 			foreach($dataset as $datarow) {
-				$select_box .=  '<option value="' . esc_html($datarow->post_name) . '" ' . selected($datarow->post_name, esc_attr($current_value), false) . '>' . esc_html($datarow->post_title) . ' (' . esc_html($datarow->post_name) . ')' .
+				$select_box .=  '<option value="' . esc_html($datarow->post_name) . '" ' . selected($datarow->post_name, esc_attr($current_value), false) . '>' . esc_html($datarow->post_title) .
 					'</option>';
 			}
 		} elseif ($static_values) {
 			foreach($static_values as $static_value) {
-				$select_box .=  '<option value="' . esc_html($static_value['post_name']) . '" ' . selected($static_value['post_name'], esc_attr($current_value), false) . '>' . esc_html($static_value['post_title']) . ' (' . esc_html($static_value['post_name']) . ')' .
+				$select_box .=  '<option value="' . esc_html($static_value['post_name']) . '" ' . selected($static_value['post_name'], esc_attr($current_value), false) . '>' . esc_html($static_value['post_title']) .
 					'</option>';
 			}
 		} else {

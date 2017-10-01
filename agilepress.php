@@ -15,7 +15,7 @@
  * Plugin Name:       AgilePress
  * Plugin URI:        https://agilepress.io/products/agilepress/
  * Description:       AgilePress brings Agile product/project management to WordPress.
- * Version:           1.514.2
+ * Version:           1.515.2
  * Author:            Vinland Media, LLC
  * Author URI:        https://vinlandmedia.com/
  * License:           GPL-2.0+
@@ -258,7 +258,9 @@ add_action('admin_menu', __NAMESPACE__.'\\agilepress_admin_menu' );
  * @author Vinland Media, LLC.
  * @package AgilePress
  */
-function agilepress_init() {
+function agilepress_init($network_wide) {
+	global $wp;
+
 	$myAgilePress_Init = new AgilePress_Init;
 
 	//register the products custom post type
@@ -294,10 +296,12 @@ function agilepress_init() {
 	// flush rewrite cache
     flush_rewrite_rules();
 
+    $redirect_url = home_url(add_query_arg(array(), $wp->request));
+
 	if (get_option('agilepress_do_activation_redirect', false)) {
 	    delete_option('agilepress_do_activation_redirect');
-	    if(!is_multisite()) {
-	        wp_redirect(get_site_url() . '/admin.php?page=ap_get_started_menu');
+	    if ((!is_multisite()) || (is_multisite() && $network_wide)) {
+	        wp_redirect(get_site_url() . '/wp-admin/admin.php?page=ap_get_started_menu');
 			exit;
 	    } else {
 	    	wp_redirect(get_site_url() . '/wp-admin/admin.php?page=ap_get_started_menu');

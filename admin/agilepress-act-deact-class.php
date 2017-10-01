@@ -368,6 +368,17 @@ class AgilePress_ActDeact {
             )
         );
 
+		$wpdb->insert(
+			$lookup_value_table_name,
+			array(
+				'lookup_key' => 'archived',
+				'lookup_value' => 'Archived',
+				'lookup_type_id' => $task_status_id,
+				'created' => current_time('timestamp'),
+				'modified' => current_time('timestamp')
+			)
+		);
+
     	// product phases
     	$wpdb->insert(
             $lookup_value_table_name,

@@ -34,14 +34,6 @@ class AgilePress_Meta {
 	 * @global $wpdb
 	 *
 	 * @uses \vinlandmedia\agilepress\AgilePress_Meta::meta_select_box()
-	 * @uses \wordpress\flush_rewrite_rules()
-	 * @uses \wordpress\wpdb\get_results()
-	 * @uses \wordpress\wp_nonce_field()
-	 *
-	 * @see https://developer.wordpress.org/reference/classes/wpdb/
-	 * @see https://developer.wordpress.org/reference/functions/flush_rewrite_rules/
-	 * @see https://developer.wordpress.org/reference/classes/wpdb/get_results/
-	 * @see https://developer.wordpress.org/reference/functions/wp_nonce_field/
 	 *
 	 * @author Vinland Media, LLC.
 	 * @package    AgilePress
@@ -86,6 +78,8 @@ class AgilePress_Meta {
 			'post_title' => 'Send to Sprint'],
 			['post_name' => 'iscomplete',
 			'post_title' => 'Completed'],
+			['post_name' => 'archived',
+			 'post_title' => 'Archived'],
 		);
 
 		$story_metabox .= $this->meta_select_box(
@@ -147,10 +141,6 @@ class AgilePress_Meta {
 	 *
 	 * @param array $agilepress_meta  Custom post metadata
 	 * @return string $product_metabox  Formatted (HTML/CSS/JavaScript) metabox panel
-	 *
-	 * @uses \wordpress\wp_nonce_field()
-	 *
-	 * @see https://developer.wordpress.org/reference/functions/wp_nonce_field/
 	 *
 	 * @author Vinland Media, LLC.
 	 * @package    AgilePress
@@ -227,14 +217,6 @@ class AgilePress_Meta {
 	 * @global $wpdb
 	 *
 	 * @uses \vinlandmedia\agilepress\AgilePress_Meta::meta_select_box()
-	 * @uses \wordpress\get_users()
-	 * @uses \wordpress\selected()
-	 * @uses \wordpress\wp_nonce_field()
-	 *
-	 * @see https://developer.wordpress.org/reference/classes/wpdb/
-	 * @see https://developer.wordpress.org/reference/functions/get_users/
-	 * @see https://developer.wordpress.org/reference/functions/selected/
-	 * @see https://developer.wordpress.org/reference/functions/wp_nonce_field/
 	 *
 	 * @author Vinland Media, LLC.
 	 * @package    AgilePress
@@ -311,6 +293,8 @@ class AgilePress_Meta {
 			'post_title' => 'In Testing'],
 			['post_name' => 'done',
 			'post_title' => 'Done'],
+			['post_name' => 'archived',
+			 'post_title' => 'Archived'],
 		);
 
 		$task_metabox .= $this->meta_select_box(
@@ -387,7 +371,6 @@ class AgilePress_Meta {
 	 * @return string $sprint_metabox  Formatted (HTML/CSS/JavaScript) metabox panel
 	 *
 	 * @uses \vinlandmedia\agilepress\AgilePress_Meta::meta_select_box()
-	 * @uses \wordpress\wp_nonce_field()
 	 *
 	 * @see https://developer.wordpress.org/reference/functions/wp_nonce_field/
 	 *
@@ -486,8 +469,6 @@ class AgilePress_Meta {
 	 * @param array $agilepress_meta  Custom post metadata
 	 * @return string $attachment_metabox  Formatted (HTML/CSS/JavaScript) metabox panel
 	 *
-	 * @uses \wordpress\wp_nonce_field()
-	 *
 	 * @author Vinland Media, LLC.
 	 * @package    AgilePress
 	 * @subpackage AgilePress\admin
@@ -547,10 +528,6 @@ class AgilePress_Meta {
 	 * @param object $dataset  The data to be used for the select box (if from DB)
 	 * @param array $static_values  The data to be used (if hard-coded)
 	 * @return string $select_box  Formatted (HTML/CSS/JavaScript) select box
-	 *
-	 * @uses \wordpress\selected()
-	 *
-	 * @see https://developer.wordpress.org/reference/functions/selected
 	 *
 	 * @author Vinland Media, LLC.
 	 * @package    AgilePress

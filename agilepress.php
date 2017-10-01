@@ -626,10 +626,6 @@ function agilepress_product_meta_box($post) {
  *
  * @global $wpdb
  *
- * @uses \wordpress\get_post_type()
- * @uses \wordpress\wp_verify_nonce()
- * @uses \wordpress\update_post_meta()
- *
  * @author Ken Kitchen ken@vinlandmedia.com
  * @author Vinland Media, LLC.
  * @package AgilePress
@@ -694,10 +690,6 @@ function agilepress_attachment_meta_box($post) {
  * @return null
  *
  * @global $wpdb
- *
- * @uses \wordpress\get_post_type()
- * @uses \wordpress\wp_verify_nonce()
- * @uses \wordpress\update_post_meta()
  *
  * @author Ken Kitchen ken@vinlandmedia.com
  * @author Vinland Media, LLC.
@@ -819,10 +811,6 @@ function agilepress_sprint_meta_box($post) {
  *
  * @global $wpdb
  *
- * @uses \wordpress\get_post_type()
- * @uses \wordpress\wp_verify_nonce()
- * @uses \wordpress\update_post_meta()
- *
  * @author Ken Kitchen ken@vinlandmedia.com
  * @author Vinland Media, LLC.
  * @package AgilePress
@@ -897,10 +885,6 @@ function agilepress_task_meta_box($post) {
  * @return null
  *
  * @global $wpdb
- *
- * @uses \wordpress\get_post_type()
- * @uses \wordpress\wp_verify_nonce()
- * @uses \wordpress\update_post_meta()
  *
  * @author Ken Kitchen ken@vinlandmedia.com
  * @author Vinland Media, LLC.
@@ -986,10 +970,6 @@ function agilepress_story_meta_box($post) {
  *
  * @global $wpdb
  *
- * @uses \wordpress\get_post_type()
- * @uses \wordpress\wp_verify_nonce()
- * @uses \wordpress\update_post_meta()
- *
  * @author Ken Kitchen ken@vinlandmedia.com
  * @author Vinland Media, LLC.
  * @package AgilePress
@@ -1023,8 +1003,6 @@ add_action( 'save_post', __NAMESPACE__.'\\agilepress_save_story_meta_box' );
 
 /**
  * Informational Shortcodes
- *
- * @todo finish informational shortcodes
  *
  * Uses a shortcode with various parameters to display single items of metadata
  * as needed in posts and pages.
@@ -1385,8 +1363,6 @@ add_shortcode('agilepress', __NAMESPACE__.'\\agilepress_main');
  *
  * @global $wpdb
  *
- * @uses \wordpress\wpdb\get_results()
- *
  * @author Ken Kitchen ken@vinlandmedia.com
  * @author Vinland Media, LLC.
  * @package AgilePress
@@ -1428,9 +1404,6 @@ function get_header_title($tasks = null, $passed_product = null) {
  *
  * @global $wpdb
  *
- * @uses \wordpress\get_post_meta()
- * @uses \wordpress\update_post_meta()
- * @uses \wordpress\delete_post_meta()
  * @uses duplicate()
  *
  * @author Ken Kitchen ken@vinlandmedia.com
@@ -1596,10 +1569,6 @@ function duplicate($post_id, $post_type, $sprint_name) {
  *
  * @return string $content The modified post/page contents
  *
- * @uses \wordpress\get_post_type()
- * @uses \wordpress\get_the_excerpt()
- * @uses \wordpress\is_page()
- *
  * @author Ken Kitchen ken@vinlandmedia.com
  * @author Vinland Media, LLC.
  * @package AgilePress
@@ -1756,15 +1725,6 @@ add_action( 'admin_post_wizard_response', __NAMESPACE__ . '\\do_wiz_response' );
  * @global $wp
  * @global $post
  * @global $wp_rewrite
- *
- * @uses \wordpress\wp_get_current_user()
- * @uses \wordpress\get_post()
- * @uses \wordpress\wp_update_post()
- * @uses \wordpress\wp_delete_post()
- * @uses \wordpress\wp_new_comment()
- * @uses \wordpress\get_post_meta()
- * @uses \wordpress\update_post_meta()
- * @uses \wordpress\wp_safe_redirect()
  *
  * @author Ken Kitchen ken@vinlandmedia.com
  * @author Vinland Media, LLC.

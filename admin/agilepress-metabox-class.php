@@ -573,8 +573,8 @@ class AgilePress_Meta {
 			}
 		} elseif ($static_values) {
 			foreach($static_values as $static_value) {
-				$select_box .=  '<option value="' . esc_html($static_value['post_name']) . '" ' . selected($static_value['post_name'], esc_attr($current_value), false) . '>' . esc_html($static_value['post_title']) .
-					'</option>';
+				$select_box .=  '<option value="' . esc_html($static_value['post_name']) . '" ' . selected($static_value['post_name'], esc_attr($current_value), false) . '>' .
+				                esc_html($static_value['post_title']) . '</option>';
 			}
 		} else {
 			$select_box .= '<option value="">(No ' . esc_html($title) . ' to display.)</option>';

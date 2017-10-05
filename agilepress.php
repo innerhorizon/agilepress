@@ -1807,19 +1807,26 @@ function do_modal_response() {
 
 				case 'comment':
 					$passed_comment = sanitize_text_field($_POST["passed_comment"]);
-					//if ($passed_comment) {
-						$new_comment = array(
-							'comment_post_ID'	=> $passed_id,
-							'comment_content'	=> $passed_comment,
-							'comment_author'	=> $current_user->display_name,
-							'comment_author_url'	=> null,
-							'comment_author_email'	=> $current_user->user_email,
-							'comment_type'		=> null,
-							'comment_approved' => 1,
-						);
-						$return_code = wp_new_comment($new_comment);
+					$passed_user_email = sanitize_text_field($_POST["passed_user_email"]);
+					if (is_user_logged_in()) {
+						$this_user_name = $current_user->display_name;
+						$this_user_email = $current_user->user_email;
+					} else {
+						$this_user_name = $passed_user_email;
+						$this_user_email = $passed_user_email;
+					}
 
-					//}
+					$new_comment = array(
+						'comment_post_ID'	=> $passed_id,
+						'comment_content'	=> $passed_comment,
+						'comment_author'	=> $this_user_name,
+						'comment_author_url'	=> null,
+						'comment_author_email'	=> $this_user_email,
+						'comment_type'		=> null,
+						'comment_approved' => 1,
+					);
+					$return_code = wp_new_comment($new_comment);
+
 					break;
 
 				case 'transition':

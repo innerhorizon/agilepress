@@ -210,18 +210,30 @@ value="blue" <?php checked('blue', $agilepress_options['agilepress_done_color'],
 <fieldset class="settings-boxes">
     <legend>Other Options</legend><br />
     <table>
-    <tr>
-    <td style="vertical-align: top;">Show Completed Notes as Crinkled?<br>
-    </td>
-    </tr>
-    <tr>
-    <td style="vertical-align: top;"><input name="agilepress_options[agilepress_note_crinkle]"
-    value="yes" <?php checked('yes', $agilepress_options['agilepress_note_crinkle'], true) ?> type="radio">Yes<br>
-    </td>
-    <td style="vertical-align: top;"><input name="agilepress_options[agilepress_note_crinkle]"
-    value="no" <?php checked('no', $agilepress_options['agilepress_note_crinkle'], true) ?> type="radio">No<br>
-    </td>
-    </tr>
+        <tr>
+            <td style="vertical-align: top;">Show Completed Notes as Crinkled?<br>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;"><input name="agilepress_options[agilepress_note_crinkle]"
+                                                    value="yes" <?php checked('yes', $agilepress_options['agilepress_note_crinkle'], true) ?> type="radio">Yes<br>
+            </td>
+            <td style="vertical-align: top;"><input name="agilepress_options[agilepress_note_crinkle]"
+                                                    value="no" <?php checked('no', $agilepress_options['agilepress_note_crinkle'], true) ?> type="radio">No<br>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Allow Guests to Comment on Public Board Notes?<br>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;"><input name="agilepress_options[agilepress_guest_comments]"
+                                                    value="yes" <?php checked('yes', $agilepress_options['agilepress_guest_comments'], true) ?> type="radio">Yes<br>
+            </td>
+            <td style="vertical-align: top;"><input name="agilepress_options[agilepress_guest_comments]"
+                                                    value="no" <?php checked('no', $agilepress_options['agilepress_guest_comments'], true) ?> type="radio">No<br>
+            </td>
+        </tr>
     </table>
 </fieldset>
 <fieldset class="settings-boxes">

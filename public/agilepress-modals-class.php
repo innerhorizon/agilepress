@@ -44,10 +44,6 @@ class AgilePress_Modals {
 	 * @param object $board_data The details to be displayed in the modal
 	 * @return string $modal_window A formated HTML string that displays modal data
 	 *
-	 * @uses \wordpress\home_url()
-	 * @uses \wordpress\admin_url()
-	 * @uses \wordpress\get_comments()
-	 * @uses \wordpress\get_post_meta()
 	 * @uses \vinlandmedia\agilepress\AgilePress_Modals::modal_inner_form()
 	 * @uses \vinlandmedia\agilepress\AgilePress_Query::get_products()
 	 * @uses \vinlandmedia\agilepress\AgilePress_Query::get_sprints()
@@ -64,6 +60,16 @@ class AgilePress_Modals {
 		$myQuery = new AgilePress_Query();
 
 		$modal_window = '';
+
+		// get saved options
+		$agilepress_options = get_option('agilepress_options');
+
+		// guests are allowed to comment on public boards
+		if ((isset($agilepress_options['agilepress_guest_comments'])) && (!empty($agilepress_options['agilepress_guest_comments']))) {
+			$guest_comments = $agilepress_options['agilepress_guest_comments'];
+		} else {
+			$guest_comments = null;
+		}
 
 		switch ($note_type) {
 			case 'story':
@@ -91,10 +97,10 @@ class AgilePress_Modals {
 					// $modal_window .= '</div>';
 					$modal_window .= '<form action="' . admin_url('admin-post.php') . '" method="POST">';
 					$modal_window .= '<input type="hidden" name="action" value="modal_response">';
-					$modal_window .= '<input class="w3-input" type="textarea" name="post_excerpt" value="' . esc_html($note->post_excerpt) . '" autofocus ' . $this->is_disabled() . '>';
+					$modal_window .= '<input class="w3-input" type="textarea" name="post_excerpt" value="' . esc_html($note->post_excerpt) . '" autofocus ' . $this->is_disabled('info') . '>';
 
 					$modal_window .= '<br /><br />';
-					$modal_window .= '<input type="submit" name="submit" value="Submit Action" ' . $this->is_disabled() . '>';
+					$modal_window .= '<input type="submit" name="submit" value="Submit Action" ' . $this->is_disabled('info') . '>';
 
 					$modal_window .= $this->modal_inner_form(
 						'backlogboard', 				// board_type
@@ -141,10 +147,15 @@ class AgilePress_Modals {
 					}
 
 					$modal_window .= '<label for="passed_comment" class="so-noted">Your Comment</label>';
-					$modal_window .= '<input class="w3-input" type="textarea" name="passed_comment" value="" autofocus ' . $this->is_disabled() . '>';
+					$modal_window .= '<input class="w3-input" type="textarea" name="passed_comment" value="" autofocus ' . $this->is_disabled('comment') . '>';
+
+					if (('yes' == $guest_comments) && (!is_user_logged_in())) {
+						$modal_window .= '<label for="passed_user_email" class="so-noted">Your Email Address</label>';
+						$modal_window .= '<input class="w3-input" type="textarea" name="passed_user_email" value="" autofocus ' . $this->is_disabled('comment') . '>';
+					}
 
 					$modal_window .= '<br /><br />';
-					$modal_window .= '<input type="submit" name="submit" value="Submit Action" ' . $this->is_disabled() . '>';
+					$modal_window .= '<input type="submit" name="submit" value="Submit Action" ' . $this->is_disabled('comment') . '>';
 
 					$modal_window .= $this->modal_inner_form(
 						'backlogboard', 				// board_type
@@ -179,12 +190,12 @@ class AgilePress_Modals {
 					$modal_window .= '<input type="hidden" name="action" value="modal_response">';
 
 					$modal_window .= '<label for="passed_title" class="so-noted">New Task Title</label>';
-					$modal_window .= '<input class="w3-input" type="text" name="passed_title" value="" placeholder="Enter new task title" autofocus ' . $this->is_disabled() . '>';
+					$modal_window .= '<input class="w3-input" type="text" name="passed_title" value="" placeholder="Enter new task title" autofocus ' . $this->is_disabled('transition') . '>';
 					$modal_window .= '<label for="passed_excerpt" class="so-noted">New Task Info</label>';
-					$modal_window .= '<input class="w3-input" type="textarea" name="passed_excerpt" value="" placeholder="Enter new task info" ' . $this->is_disabled() . '>';
+					$modal_window .= '<input class="w3-input" type="textarea" name="passed_excerpt" value="" placeholder="Enter new task info" ' . $this->is_disabled('transition') . '>';
 
 					$modal_window .= '<br /><br />';
-					$modal_window .= '<input type="submit" name="submit" value="Submit Action" ' . $this->is_disabled() . '>';
+					$modal_window .= '<input type="submit" name="submit" value="Submit Action" ' . $this->is_disabled('transition') . '>';
 
 					$modal_window .= $this->modal_inner_form(
 						'backlogboard', 				// board_type
@@ -231,7 +242,7 @@ class AgilePress_Modals {
 					$modal_window .= $meta_section;
 
 					$modal_window .= '<br /><br />';
-					$modal_window .= '<input type="submit" name="submit" value="Submit Action" autofocus ' . $this->is_disabled() . '>';
+					$modal_window .= '<input type="submit" name="submit" value="Submit Action" autofocus ' . $this->is_disabled('attachment') . '>';
 
 					$modal_window .= $this->modal_inner_form(
 						'backlogboard', 				// board_type
@@ -282,7 +293,7 @@ class AgilePress_Modals {
 					$modal_window .= $meta_section;
 
 					$modal_window .= '<br /><br />';
-					$modal_window .= '<input type="submit" name="submit" value="Submit Action" autofocus ' . $this->is_disabled() . '>';
+					$modal_window .= '<input type="submit" name="submit" value="Submit Action" autofocus ' . $this->is_disabled('settings') . '>';
 
 					$modal_window .= $this->modal_inner_form(
 						'backlogboard', 				// board_type
@@ -320,7 +331,7 @@ class AgilePress_Modals {
 					$modal_window .= ' <input class="w3-check" type="checkbox" name="passed_checkbox" value="remove">';
 
 					$modal_window .= '<br /><br />';
-					$modal_window .= '<input type="submit" id="submit-remove" name="submit" value="Submit Action" autofocus ' . $this->is_disabled() . '>';
+					$modal_window .= '<input type="submit" id="submit-remove" name="submit" value="Submit Action" autofocus ' . $this->is_disabled('remove') . '>';
 
 					$modal_window .= $this->modal_inner_form(
 						'backlogboard', 				// board_type
@@ -364,10 +375,10 @@ class AgilePress_Modals {
 
 					$modal_window .= '<form action="' . admin_url('admin-post.php') . '" method="POST">';
 					$modal_window .= '<input type="hidden" name="action" value="modal_response">';
-					$modal_window .= '<input class="w3-input" type="textarea" name="post_excerpt" value="' . esc_html($note->post_excerpt) . '" autofocus> ' . $this->is_disabled() . '';
+					$modal_window .= '<input class="w3-input" type="textarea" name="post_excerpt" value="' . esc_html($note->post_excerpt) . '" autofocus> ' . $this->is_disabled('info') . '';
 
 					$modal_window .= '<br /><br />';
-					$modal_window .= '<input type="submit" name="submit" value="Submit Action" ' . $this->is_disabled() . '>';
+					$modal_window .= '<input type="submit" name="submit" value="Submit Action" ' . $this->is_disabled('info') . '>';
 
 					$modal_window .= $this->modal_inner_form(
 						'sprintboard', 					// board_type
@@ -386,6 +397,7 @@ class AgilePress_Modals {
 					/*
 					* Comment
 					*/
+
 					$modal_window .= $this->modal_inner_form(
 						'sprintboard', 					// board_type
 						'task', 						// note_type
@@ -416,10 +428,15 @@ class AgilePress_Modals {
 					}
 
 					$modal_window .= '<label for="passed_comment" class="so-noted">Your Comment</label>';
-					$modal_window .= '<input class="w3-input" type="textarea" name="passed_comment" value="" autofocus ' . $this->is_disabled() . '>';
+					$modal_window .= '<input class="w3-input" type="textarea" name="passed_comment" value="" autofocus ' . $this->is_disabled('comment') . '>';
+
+					if (('yes' == $guest_comments) && (!is_user_logged_in())) {
+						$modal_window .= '<label for="passed_user_email" class="so-noted">Your Email Address</label>';
+						$modal_window .= '<input class="w3-input" type="textarea" name="passed_user_email" value="" autofocus ' . $this->is_disabled('comment') . '>';
+					}
 
 					$modal_window .= '<br /><br />';
-					$modal_window .= '<input type="submit" name="submit" value="Submit Action" ' . $this->is_disabled() . '>';
+					$modal_window .= '<input type="submit" name="submit" value="Submit Action" ' . $this->is_disabled('comment') . '>';
 
 					$modal_window .= $this->modal_inner_form(
 						'sprintboard', 					// board_type
@@ -455,12 +472,12 @@ class AgilePress_Modals {
 					$modal_window .= '<input type="hidden" name="action" value="modal_response">';
 
 					$modal_window .= '<label for="passed_title" class="so-noted">New Task Title</label>';
-					$modal_window .= '<input class="w3-input" type="text" name="passed_title" value="" placeholder="Enter new task title" autofocus ' . $this->is_disabled() . '>';
+					$modal_window .= '<input class="w3-input" type="text" name="passed_title" value="" placeholder="Enter new task title" autofocus ' . $this->is_disabled('transition') . '>';
 					$modal_window .= '<label for="passed_excerpt" class="so-noted">New Task Info</label>';
-					$modal_window .= '<input class="w3-input" type="textarea" name="passed_excerpt" value="" placeholder="Enter new task info" ' . $this->is_disabled() . '>';
+					$modal_window .= '<input class="w3-input" type="textarea" name="passed_excerpt" value="" placeholder="Enter new task info" ' . $this->is_disabled('transition') . '>';
 
 					$modal_window .= '<br /><br />';
-					$modal_window .= '<input type="submit" name="submit" value="Submit Action" ' . $this->is_disabled() . '>';
+					$modal_window .= '<input type="submit" name="submit" value="Submit Action" ' . $this->is_disabled('transition') . '>';
 
 					$modal_window .= $this->modal_inner_form(
 						'sprintboard', 					// board_type
@@ -506,7 +523,7 @@ class AgilePress_Modals {
 					$modal_window .= $meta_section;
 
 					$modal_window .= '<br /><br />';
-					$modal_window .= '<input type="submit" name="submit" value="Submit Action" autofocus ' . $this->is_disabled() . '>';
+					$modal_window .= '<input type="submit" name="submit" value="Submit Action" autofocus ' . $this->is_disabled('attachment') . '>';
 
 					$modal_window .= $this->modal_inner_form(
 						'sprintboard', 					// board_type
@@ -558,7 +575,7 @@ class AgilePress_Modals {
 					$modal_window .= $meta_section;
 
 					$modal_window .= '<br /><br />';
-					$modal_window .= '<input type="submit" name="submit" value="Submit Action" autofocus ' . $this->is_disabled() . '>';
+					$modal_window .= '<input type="submit" name="submit" value="Submit Action" autofocus ' . $this->is_disabled('settings') . '>';
 
 					$modal_window .= $this->modal_inner_form(
 						'sprintboard', 					// board_type
@@ -596,7 +613,7 @@ class AgilePress_Modals {
 					$modal_window .= ' <input class="w3-check" type="checkbox" name="passed_checkbox" value="remove">';
 
 					$modal_window .= '<br /><br />';
-					$modal_window .= '<input type="submit" id="submit-remove" name="submit" value="Submit Action" autofocus ' . $this->is_disabled() . '>';
+					$modal_window .= '<input type="submit" id="submit-remove" name="submit" value="Submit Action" autofocus ' . $this->is_disabled('remove') . '>';
 
 					$modal_window .= $this->modal_inner_form(
 						'sprintboard', 					// board_type
@@ -697,16 +714,29 @@ class AgilePress_Modals {
 	 * This method is used to disable HTML input elements for users who are not
 	 * authorized to edit/change them.
 	 *
+	 * @param string $action  The action currently being processed
 	 * @return string $result The word "disabled" or null
 	 *
 	 * @author Vinland Media, LLC.
 	 * @package AgilePress
 	 */
-	private function is_disabled() {
-		if (!user_can(wp_get_current_user(), 'transition_tasks')) {
-			$result = 'disabled';
-		} else {
+	private function is_disabled($action = null) {
+		if ('comment' == $action) {
+			// get saved options
+			$agilepress_options = get_option('agilepress_options');
+
+			// guests are allowed to comment on public boards
+			if ((isset($agilepress_options['agilepress_guest_comments'])) && (!empty($agilepress_options['agilepress_guest_comments']))) {
+				$guest_comments = $agilepress_options['agilepress_guest_comments'];
+			} else {
+				$guest_comments = null;
+			}
+		}
+
+		if ((user_can(wp_get_current_user(), 'transition_tasks')) || ('yes' == $guest_comments && 'comment' == $action))  {
 			$result = null;
+		} else {
+			$result = 'disabled';
 		}
 
 		return $result;

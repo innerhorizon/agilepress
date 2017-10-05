@@ -49,6 +49,7 @@ class AgilePress_ActDeact {
     		'agilepress_note_body_font' => 'indie-flower',
     		// option
     		'agilepress_note_crinkle' => 'no',
+    		'agilepress_guest_comments' => 'no',
     		// headings
     		'agilepress_epic_header' => 'Epics',
     		'agilepress_epic_text' => 'These are meta-stories, large enough that they should be broken into seperate PBIs.',
@@ -129,6 +130,7 @@ class AgilePress_ActDeact {
 		delete_option('agilepress_note_body_font');
 		// option
 		delete_option('agilepress_note_crinkle');
+		delete_option('agilepress_guest_comments');
 		// column headings
 		delete_option('agilepress_epic_header');
 		delete_option('agilepress_epic_text');

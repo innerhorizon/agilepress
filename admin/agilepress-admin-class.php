@@ -33,7 +33,6 @@ class AgilePress_Admin {
 	 * @return 0 (not used)
 	 *
 	 * @uses \vinlandmedia\agilepress\AgilePress_Admin::custom_list_cols()
-	 * @uses \wordpress\flush_rewrite_rules()
 	 *
 	 * @see https://developer.wordpress.org/reference/functions/add_menu_page/
 	 * @see https://developer.wordpress.org/reference/functions/add_submenu_page/

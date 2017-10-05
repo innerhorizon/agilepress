@@ -259,8 +259,6 @@ class AgilePress_Init {
 	 * @param string $role  The name of the new role being defined
 	 * @return integer $return_code  Returns 0 for good; -1 for bad
 	 *
-	 * @uses \wordpress\add_role()
-	 *
 	 * @see https://developer.wordpress.org/reference/functions/add_role/
 	 *
 	 * @author Vinland Media, LLC.

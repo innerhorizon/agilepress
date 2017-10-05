@@ -22,7 +22,6 @@ class AgilePress_ActDeact {
 	 * @return 0 (not used)
 	 *
 	 * @uses \vinlandmedia\agilepress\AgilePress_Admin::custom_list_cols()
-	 * @uses \wordpress\flush_rewrite_rules()
 	 *
 	 * @author Vinland Media, LLC.
 	 * @package    AgilePress
@@ -84,7 +83,6 @@ class AgilePress_ActDeact {
 	 * @return 0 (not used)
 	 *
 	 * @uses \vinlandmedia\agilepress\AgilePress_Admin::custom_list_cols()
-	 * @uses \wordpress\flush_rewrite_rules()
 	 *
 	 * @author Vinland Media, LLC.
 	 * @package    AgilePress
@@ -97,11 +95,7 @@ class AgilePress_ActDeact {
 	/**
 	 * This method...
 	 *
-	 * @param null
-	 * @return 0 (not used)
-	 *
 	 * @uses \vinlandmedia\agilepress\AgilePress_Admin::custom_list_cols()
-	 * @uses \wordpress\flush_rewrite_rules()
 	 *
 	 * @author Vinland Media, LLC.
 	 * @package    AgilePress
@@ -168,7 +162,6 @@ class AgilePress_ActDeact {
 	 * @return 0 (not used)
 	 *
 	 * @uses \vinlandmedia\agilepress\AgilePress_Admin::custom_list_cols()
-	 * @uses \wordpress\flush_rewrite_rules()
 	 *
 	 * @author Vinland Media, LLC.
 	 * @package    AgilePress
@@ -502,7 +495,6 @@ class AgilePress_ActDeact {
 	 * @return 0 (not used)
 	 *
 	 * @uses \vinlandmedia\agilepress\AgilePress_Admin::custom_list_cols()
-	 * @uses \wordpress\flush_rewrite_rules()
 	 *
 	 * @author Vinland Media, LLC.
 	 * @package    AgilePress

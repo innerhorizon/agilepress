@@ -17,7 +17,7 @@ namespace vinlandmedia\agilepress;
 <img src="<?= plugins_url('agilepress') ?>/admin/partials/img/agilepress.png">
 <h3>AgilePress Settings</h3>
 <div class="wrap">
-<form method="post" action="options.php">
+<form method="post" action="options.php" class="form-style-5">
 <?php settings_fields('agilepress-settings-group'); ?>
 <?php $agilepress_options = get_option('agilepress_options'); ?>
 <fieldset class="settings-boxes"><legend>Registration</legend><br />
@@ -277,6 +277,7 @@ value="blue" <?php checked('blue', $agilepress_options['agilepress_done_color'],
     <p></p>
     </td>
     </tr>
+        <hr />
     <tr>
     <td style="vertical-align: top;">
         <p>Sprint Backlog Header: <input type="text" name="agilepress_options[agilepress_sprintblog_header]" value="<?= esc_attr($agilepress_options['agilepress_sprintblog_header']) ?>"></p>

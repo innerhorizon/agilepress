@@ -4,7 +4,7 @@ Donate link: https://agilepress.io/
 Tags: agile, scrum, kanban, task management, product management, project management, to-do
 Requires at least: 4.8
 Tested up to: 4.8.2
-Stable tag: 1.529.1
+Stable tag: 1.538.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -76,6 +76,11 @@ Thank you for choosing AgilePress!
 
 == Changelog ==
 
+= 1.538.5 =
+* Notes now allow for annonymous comments if permitted by AP admin;
+* Tweaks around sprint backlog item add parent;
+* Improved appearance of settings page.
+
 = 1.529.1 =
 * Fixed issue with hidden fields and URL redirects.
 
@@ -83,23 +88,23 @@ Thank you for choosing AgilePress!
 * Fixed some issues with sprint board display.
 
 = 1.514.2 =
-* For public users, Font Awesome icons (across bottom of notes) now only show when an action is available.
+* For public users, Font Awesome icons (across bottom of notes) now only show when an action is available;
 * File uploads and deletions now work from modal windows (on notes).
 
 = 1.505.0 =
-* Add new item button fixed so that it does not show for guests on public board.
+* Add new item button fixed so that it does not show for guests on public board;
 * Fixed minor issue with a variable that is undefined in some cases.
 
 = 1.497.3 =
-* AgilePress now works with Multisite installations of WordPress.
-* Deactivation no longer clears options or deletes custom tables; this is done in the uninstaller.
+* AgilePress now works with Multisite installations of WordPress;
+* Deactivation no longer clears options or deletes custom tables; this is done in the uninstaller;
 * Changed display priority of AP metaboxes and changed the name and description for excerpt boxes.
 
 = 1.361.4 =
-* Fixed issue where new tasks made from front-end were not showing on proper sprint board.
-* Put back the sprint-overlay designation for tasks in column three of the backlog.
-* Column descriptions are now customizable.
-* FA icons now show pointer on hover; note itself show grab hand.
+* Fixed issue where new tasks made from front-end were not showing on proper sprint board;
+* Put back the sprint-overlay designation for tasks in column three of the backlog;
+* Column descriptions are now customizable;
+* FA icons now show pointer on hover; note itself show grab hand;
 * Updated CSS for modals for better display on different themes plus a few more small fixes.
 
 = 1.295.9 =
@@ -112,11 +117,11 @@ Thank you for choosing AgilePress!
 
 
 = 1.220.7 =
-* Added "public" parameter for board shortcodes
-* Addressed an issue where board columns were not resizing consistently
+* Added "public" parameter for board shortcodes;
+* Addressed an issue where board columns were not resizing consistently.
 
 = 1.066.0 =
-* Initial Public Release
+* Initial Public Release.
 
 == Additional Notes ==
 

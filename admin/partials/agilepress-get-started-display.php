@@ -14,14 +14,14 @@ namespace vinlandmedia\agilepress;
 // ini_set("display_errors", 1);
 
 ?>
-<div>
-<img src="<?= plugins_url('agilepress') ?>/admin/partials/img/agilepress.png">
+<div class="ap-panel">
+    <a href="https://agilepress.io" target="_blank"><img src="<?= plugins_url('agilepress') ?>/admin/partials/img/agilepress.png"></a>
 <h2>Welcome to AgilePress!</h2>
 <p>First things first... AgilePress is like a roller-coaster: it has a back-end and you're welcome to use it, but it's a lot more fun up front. The best thing about AgilePress are the boards, and there isn't much that you can't do from the boards once they're set up. Which is why we want to mention, right up front:</p>
 <ul>
     <li>- Boards live on pages;</li>
     <li>- Pages should be full-width whenever possible;</li>
-    <li>- You need a product go get started.</li>
+    <li>- You need a product to get started.</li>
 </ul>
 <h3>Create a Product</h3>
 <p>The first thing you need to do is create a product. A product is the output of your process; it could be building a deck, picking the best car for your next purchase, writing a term paper, or - of course - developing software. Your first step is to go to <strong>AgilePress -> All Products</strong> on the admin menu and create a product.</p>

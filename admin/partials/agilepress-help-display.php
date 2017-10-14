@@ -14,7 +14,8 @@ namespace vinlandmedia\agilepress;
 // ini_set("display_errors", 1);
 
 ?>
-<img src="<?= plugins_url('agilepress') ?>/admin/partials/img/agilepress.png">
+<div  class="ap-panel">
+    <a href="https://agilepress.io" target="_blank"><img src="<?= plugins_url('agilepress') ?>/admin/partials/img/agilepress.png"></a>
 <h2>AgilePress Help</h2>
 <p>Welcome to <strong>AgilePress</strong>, the plugin that turns WordPress into an agile product management system!</p>
 <p><strong>AgilePress</strong> is based on the principles of Scrum and Kanban, which are both methodologies used in Agile project management. Our aim for <strong>AgilePress</strong> is to make the product management process simple, but if you're the person setting it up, there are a number of things you should know.</p>
@@ -49,3 +50,4 @@ namespace vinlandmedia\agilepress;
 <p><strong>AgilePress</strong> provides a helpful glossary of Agile product/project management terms.</p>
 <a href="https://agilepress.io/glossary/" target="_blank">Glossary</a>
 <br />
+</div>

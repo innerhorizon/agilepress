@@ -305,7 +305,6 @@
   background-color : #fff;
   outline          : 0;
 }
-
 .w3-modal-content {
   width  : auto!important;
   margin : 0 10px;
@@ -319,7 +318,6 @@
   position  : relative;
   animation : animatetop 0.4s;
 }
-
 @keyframes animatetop {
   from {
     top     : -300px;
@@ -330,6 +328,20 @@
     top     : 0;
     opacity : 1;
   }
+}
+
+.w3-animate-left {
+  position:relative;
+  animation:animateleft 0.4s;
+}
+@keyframes animateleft {
+  from {
+    left:-300px;
+    opacity:0;
+  } to {
+        left:0;
+        opacity:1;
+      }
 }
 
 .w3-leftbar {
@@ -351,6 +363,6 @@
 .w3-grey,
 .w3-hover-gray:hover,
 .w3-hover-grey:hover {
-  color            : #000!important;
-  background-color : #bbb!important;
+  color            : #000000!important;
+  background-color : #c0c0c0!important;
 }

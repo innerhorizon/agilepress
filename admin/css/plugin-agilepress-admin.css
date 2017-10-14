@@ -181,3 +181,16 @@ input[type=textarea] {
     border-width: 1px 1px 1px 1px;
     margin-bottom: 10px;
 }
+.ap-label {
+    font-weight: bold;
+}
+.ap-legend {
+    font-size: 1.2em;
+}
+
+.ap-panel {
+    padding : 0.01em 16px;
+    background-color: white;
+    margin-top    : 16px;
+    margin-bottom : 16px;
+}

@@ -670,7 +670,7 @@ class AgilePress_Modals {
 				$title = '$board_data->' . $note_type . '_title';
 
 				$partial_modal .= '<div id="' . esc_html($window_id) . '" class="w3-modal">';
-				$partial_modal .= '<div class="w3-modal-content w3-card-4 w3-animate-top w3-leftbar w3-border-black">';
+				$partial_modal .= '<div class="w3-modal-content w3-card-4 w3-animate-left w3-leftbar w3-border-black">';
 				$partial_modal .= '<div class="w3-container">';
 				$partial_modal .= '<span onclick="document.getElementById(\'' . esc_html($window_id) . '\').style.display=\'none\'" class="w3-button w3-display-topright">&times;</span>';
 				$partial_modal .= '<div class="w3-container">';

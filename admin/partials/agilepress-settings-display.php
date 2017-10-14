@@ -14,7 +14,8 @@ namespace vinlandmedia\agilepress;
 // ini_set("display_errors", 1);
 
 ?>
-<img src="<?= plugins_url('agilepress') ?>/admin/partials/img/agilepress.png">
+    <div class="ap-panel">
+        <a href="https://agilepress.io" target="_blank"><img src="<?= plugins_url('agilepress') ?>/admin/partials/img/agilepress.png"></a>
 <h3>AgilePress Settings</h3>
 <div class="wrap">
 <form method="post" action="options.php" class="form-style-5">
@@ -319,4 +320,5 @@ value="blue" <?php checked('blue', $agilepress_options['agilepress_done_color'],
 </p>
 </form>
 </div>
+    </div>
 <?php

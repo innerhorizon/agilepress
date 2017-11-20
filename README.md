@@ -35,17 +35,17 @@ Our aim for AgilePress is to make the product management process simple, but if 
 
 ### Frequently Asked Questions
 
-** Why are the board columns all scrunched up? **
+**Why are the board columns all scrunched up?**
 
 If at all possible, use a theme that provides a full-width template for pages.
 
-** Can I use AgilePress on my mobile device? **
+**Can I use AgilePress on my mobile device?**
 
 At the present time, dragging and dropping the notes on a board hasn’t been implemented for touch screens, however you can move the notes around by changing the status in the settings modal.
 
 AgilePress looks great on tablets (view horizontally!) but phones, not so much.  We really need our space for our boards!
 
-** Does AgilePress work with WordPress Multisite installations? **
+**Does AgilePress work with WordPress Multisite installations?**
 
 As of version 1.497.3, yes; please consider the functionality "beta" and report any feedback to us.
 

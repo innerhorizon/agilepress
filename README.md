@@ -1,16 +1,25 @@
-=== AgilePress ===
+## AgilePress
+
 Contributors: vinlandmedia, kenshihan
+
 Donate link: https://agilepress.io/
+
 Tags: agile, scrum, kanban, task management, product management, project management, to-do
+
 Requires at least: 4.8
+
 Tested up to: 4.8.2
+
 Stable tag: 1.538.5
+
 License: GPLv2 or later
+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
 
 AgilePress brings Agile product/project management to WordPress using Kanban and Scrum boards.
 
-== Description ==
+### Description
 
 Welcome to [AgilePress](https://agilepress.io/), the plugin that turns WordPress into an agile task management system!
 
@@ -18,29 +27,29 @@ AgilePress is based on the principles of [Scrum](https://en.wikipedia.org/wiki/S
 
 Our aim for AgilePress is to make the product management process simple, but if you’re the person setting it up, there are a number of things you should know.  We've written - and are constantly adding to - documentation for AgilePress on our website, [AgilePress.io](https://agilepress.io).
 
-== Installation ==
+### Installation
 
 1. Upload `agilepress.zip` to the `/wp-content/plugins/` directory
 2. Uncompress the .zip file
 3. Activate the plugin through the 'Plugins' menu in WordPress
 
-== Frequently Asked Questions ==
+### Frequently Asked Questions
 
-= Why are the board columns all scrunched up? =
+** Why are the board columns all scrunched up? **
 
 If at all possible, use a theme that provides a full-width template for pages.
 
-= Can I use AgilePress on my mobile device? =
+** Can I use AgilePress on my mobile device? **
 
 At the present time, dragging and dropping the notes on a board hasn’t been implemented for touch screens, however you can move the notes around by changing the status in the settings modal.
 
 AgilePress looks great on tablets (view horizontally!) but phones, not so much.  We really need our space for our boards!
 
-= Does AgilePress work with WordPress Multisite installations? =
+** Does AgilePress work with WordPress Multisite installations? **
 
 As of version 1.497.3, yes; please consider the functionality "beta" and report any feedback to us.
 
-== Screenshots ==
+### Screenshots
 
 1. Adding a new task; AgilePress uses custom post types for its major components.
 2. An example of the product edit screen.
@@ -50,7 +59,7 @@ As of version 1.497.3, yes; please consider the functionality "beta" and report 
 6. Changing the text of a note directly from a displayed board.
 7. A portion of the settings/options screen. You can choose which colors and fonts are used for the notes on your boards.
 
-== Quickstart Guide ==
+### Quickstart Guide
 
 First things first... AgilePress is like a roller-coaster: it has a back-end and you're welcome to use it, but it's a lot more fun up front. The best thing about AgilePress are the boards, and there isn't much that you can't do from the boards once they're set up. Which is why we want to mention, right up front:
 
@@ -58,13 +67,13 @@ First things first... AgilePress is like a roller-coaster: it has a back-end and
 - Pages should be full-width whenever possible;
 - You need a product go get started.
 
-=== Create a Product ===
+#### Create a Product
 
 The first thing you need to do is create a product. A product is the output of your process; it could be building a deck, picking the best car for your next purchase, writing a term paper, or - of course - developing software. Your first step is to go to AgilePress -> All Products on the admin menu and create a product.
 
 After you've created a product, you need to record at least one of the things you want to see out of your product. Without getting too far into the weeds (stories and epics and backlog-items, oh my!), let's just go to AgilePress -> All Tasks and add at least one task. If you're product is to build a deck, then you might want tasks for creating a design, purchasing the raw materials, and scheduling time off from work, etc. The least you need to enter for your new task(s) is Associated Product (that's the product you just created in the previous step) and Task Status (which should probably be "To Do" for now).
 
-=== Boards Live on Pages! ===
+#### Boards Live on Pages!
 
 This is the front-end part. As long as you now have a product and at least one task associated with said product, you can jump into the board action. Go to your list of products and copy the shortcode for the Kanban board. Create a new WordPress page, paste in the Kanban shortcode, and view the page. Viola! You have a Kanban board for your product/project.
 
@@ -74,40 +83,40 @@ Now... get to work on that deck! (Or term paper, or software product, or whateve
 
 Thank you for choosing AgilePress!
 
-== Changelog ==
+### Changelog
 
-= 1.538.5 =
+#### 1.538.5
 * Notes now allow for annonymous comments if permitted by AP admin;
 * Tweaks around sprint backlog item add parent;
 * Improved appearance of settings page.
 
-= 1.529.1 =
+#### 1.529.1
 * Fixed issue with hidden fields and URL redirects.
 
-= 1.515.2 =
+#### 1.515.2
 * Fixed some issues with sprint board display.
 
-= 1.514.2 =
+#### 1.514.2
 * For public users, Font Awesome icons (across bottom of notes) now only show when an action is available;
 * File uploads and deletions now work from modal windows (on notes).
 
-= 1.505.0 =
+#### 1.505.0
 * Add new item button fixed so that it does not show for guests on public board;
 * Fixed minor issue with a variable that is undefined in some cases.
 
-= 1.497.3 =
+#### 1.497.3
 * AgilePress now works with Multisite installations of WordPress;
 * Deactivation no longer clears options or deletes custom tables; this is done in the uninstaller;
 * Changed display priority of AP metaboxes and changed the name and description for excerpt boxes.
 
-= 1.361.4 =
+#### 1.361.4
 * Fixed issue where new tasks made from front-end were not showing on proper sprint board;
 * Put back the sprint-overlay designation for tasks in column three of the backlog;
 * Column descriptions are now customizable;
 * FA icons now show pointer on hover; note itself show grab hand;
 * Updated CSS for modals for better display on different themes plus a few more small fixes.
 
-= 1.295.9 =
+#### 1.295.9
 * Added getting started page that shows automatically on activation;
 * Added button to allow adding of new items from the board;
 * Fixed issue with Font Awesome includes;
@@ -115,15 +124,14 @@ Thank you for choosing AgilePress!
 * Fixed issue where items where showing on sprint board when they weren't actually associated with that sprint;
 * Other cosmetic tweaks and code refactoring.
 
-
-= 1.220.7 =
+#### 1.220.7
 * Added "public" parameter for board shortcodes;
 * Addressed an issue where board columns were not resizing consistently.
 
-= 1.066.0 =
+#### 1.066.0
 * Initial Public Release.
 
-== Additional Notes ==
+### Additional Notes
 
 We strongly recommend:
 

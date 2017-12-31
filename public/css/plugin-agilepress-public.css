@@ -2,7 +2,7 @@
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
-@import url('https://fonts.googleapis.com/css?family=Allura|Architects+Daughter|Damion|Homemade+Apple|Indie+Flower|Patrick+Hand+SC|Permanent+Marker|Reenie+Beanie|Rock+Salt|Sacramento|Shadows+Into+Light+Two');
+@import url('https://fonts.googleapis.com/css?family=Allura|Architects+Daughter|Damion|Homemade+Apple|Indie+Flower|Patrick+Hand+SC|Permanent+Marker|Reenie+Beanie|Rock+Salt|Sacramento|Shadows+Into+Light+Two|Ledger|Nixie+One');
 #scrumboard {
     width: 100%;
     min-height: 512px;
@@ -106,33 +106,30 @@
      background-image: url("../partials/img/ClearWrinkledPaperTexture.png");
 }
 .sprintoverlay {
-     background-image: url("../partials/img/InSprint.png");
+     background-image: url("../partials/img/InSprint2.png");
      background-size: cover;
      background-position: center;
-     -ms-transform: rotate(7deg); /* IE 9 */
-     -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
-     transform: rotate(7deg);
 }
 
  .notebody-allura {
      font-family: 'Allura', cursive;
-     font-size: 20px;
+     font-size: 26px;
  }
  .notebody-architects-daughter {
      font-family: 'Architects Daughter', cursive;
-     font-size: 20px;
+     font-size: 22px;
  }
  .notebody-damion {
      font-family: 'Damion', cursive;
-     font-size: 20px;
+     font-size: 24px;
  }
  .notebody-homemade-apple {
      font-family: 'Homemade Apple', cursive;
-     font-size: 20px;
+     font-size: 18px;
  }
  .notebody-indie-flower {
      font-family: 'Indie Flower', cursive;
-     font-size: 1em;
+     font-size: 22px;
  }
  .smallbody-indie-flower {
      font-family: 'Indie Flower', cursive;
@@ -144,11 +141,11 @@
  }
  .notebody-patrick-hand-sc {
      font-family: 'Patrick Hand SC', cursive;
-     font-size: 20px;
+     font-size: 24px;
  }
  .notebody-permanent-marker {
      font-family: 'Permanent Marker', cursive;
-     font-size: 1.2em;
+     font-size: 18px;
  }
  .smallbody-permanent-marker {
      font-family: 'Permanent Marker', cursive;
@@ -160,20 +157,31 @@
  }
  .notebody-reenie-beanie {
      font-family: 'Reenie Beanie', cursive;
-     font-size: 20px;
+     font-size: 28px;
  }
  .notebody-rock-salt {
      font-family: 'Rock Salt', cursive;
-     font-size: 20px;
+     font-size: 16px;
  }
  .notebody-sacramento {
      font-family: 'Sacramento', cursive;
-     font-size: 20px;
+     font-size: 26px;
  }
  .notebody-shadows-into-light-two {
      font-family: 'Shadows Into Light Two', cursive;
      font-size: 20px;
  }
+
+.notebody-nixie-one {
+    font-family: 'Nixie One', cursive;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.notebody-ledger {
+    font-family: 'Ledger', serif;
+    font-size: 16px;
+}
 
 .smallsticky {
     width: 85%;
@@ -226,6 +234,7 @@ ul.pagination .disabled:hover a {
     margin-bottom: 8px;
     margin-right: 8px;
     margin-left: 8px;
+    padding-top: 3%;
 }
 .underline {
     text-align: center;
@@ -251,7 +260,6 @@ table .underline {
     font-size: .8em;
 }
 .priority-text {
-    text-decoration: underline;
     font-size: .7em;
 }
 .fa:hover {

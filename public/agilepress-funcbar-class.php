@@ -57,7 +57,7 @@ class AgilePress_FunctionBar {
 		// if we have a logged-in user who is eligible for updates then give the full-function bar
 		if (user_can(wp_get_current_user(), 'transition_tasks'))  {
 			// build the Font Awesome bar for regular users
-			$function_bar = '<br /><div class="w3-container function-bar"><i class="fa fa-pencil" onclick="noticons(' . $note_id . ', &#39;info&#39;)"></i>' . ' ' .
+			$function_bar = '<br /><div class="function-bar"><i class="fa fa-pencil" onclick="noticons(' . $note_id . ', &#39;info&#39;)"></i>' . ' ' .
 			                '<i class="fa ' . $fa_comment_icon . '" onclick="noticons(' . $note_id . ', &#39;comment&#39;)">' . $comment_icon . '</i>' . ' ' .
 			                $this->use_multiaction($note_id, $status, $board) .
 			                '<i class="fa fa-paperclip" onclick="noticons(' . $note_id . ', &#39;attachment&#39;)"></i>' . ' ' .
@@ -65,7 +65,7 @@ class AgilePress_FunctionBar {
 			                '<i class="fa fa-remove" onclick="noticons(' . $note_id . ', &#39;remove&#39;)"></i></div>';
 		} else {
 			// build the Font Awesome bar for public
-			$function_bar = '<br /><div class="w3-container function-bar">' .
+			$function_bar = '<br /><div class="function-bar">' .
 			                '<i class="fa ' . $fa_comment_icon . '" onclick="noticons(' . $note_id . ', &#39;comment&#39;)">' . $comment_icon . '</i>' . ' ' .
 			                '<i class="fa fa-paperclip" onclick="noticons(' . $note_id . ', &#39;attachment&#39;)"></i></div>';
 		}

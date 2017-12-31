@@ -53,10 +53,13 @@
   position:relative;
 }
 
+.w3-card-4 .priority-bar {
+  font-weight: bold;
+}
+
 .w3-card-4 .function-bar {
   position:absolute;
-  bottom:10px;
-  left:3px;
+  bottom:5%;
 }
 
 .w3-col {

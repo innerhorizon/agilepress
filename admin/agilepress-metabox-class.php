@@ -49,6 +49,9 @@ class AgilePress_Meta {
 		$agilepress_status = (!empty($agilepress_meta['story_status'])) ? $agilepress_meta['story_status'] : '';
 		$agilepress_sprint = (!empty($agilepress_meta['story_sprint'])) ? $agilepress_meta['story_sprint'] : '';
 		$agilepress_parent_epic = (!empty($agilepress_meta['parent_epic'])) ? $agilepress_meta['parent_epic'] : '';
+		$agilepress_priority = ( ! empty( $agilepress_meta['story_priority'] ) ) ? $agilepress_meta['story_priority'] : '';
+		$agilepress_target_date = ( ! empty( $agilepress_meta['target_date'] ) ) ? $agilepress_meta['target_date'] : '';
+		$agilepress_completed_date = ( ! empty( $agilepress_meta['completed_date'] ) ) ? $agilepress_meta['completed_date'] : '';
 
 		//nonce field for security
 		wp_nonce_field('story-meta-box-save', 'agilepress');
@@ -117,6 +120,36 @@ class AgilePress_Meta {
 			$sprints,
 			null);
 		// end select box
+
+		$story_metabox .= '</tr>';
+
+		// start Priority select box
+		$story_priority = array(
+			['post_name' => '5',
+			 'post_title' => 'Critical'],
+			['post_name' => '4',
+			 'post_title' => 'Major'],
+			['post_name' => '3',
+			 'post_title' => 'Normal'],
+			['post_name' => '2',
+			 'post_title' => 'Minor'],
+			['post_name' => '1',
+			 'post_title' => 'Trivial'],
+		);
+
+		$story_metabox .= $this->meta_select_box(
+			'Story Priority',
+			'agilepress_story[story_priority]',
+			$agilepress_priority,
+			null,
+			$story_priority);
+		// end select box
+
+		$story_metabox .= '<tr>';
+		$story_metabox .= '<td>' .__('Target Date', 'agilepress').':</td><td><input type="date" name="agilepress_story[target_date]" value="'.esc_attr( $agilepress_target_date ).'" size="24" ' . $this->is_disabled() . '></td>';
+		$story_metabox .= '</tr><tr>';
+		$story_metabox .= '<td>' .__('Completed Date', 'agilepress').':</td><td><input type="date" name="agilepress_story[completed_date]" value="'.esc_attr( $agilepress_completed_date ).'" size="24" ' . $this->is_disabled() . '></td>';
+		$story_metabox .= '</tr>';
 
 		$story_metabox .= '</tr>';
 
@@ -234,6 +267,8 @@ class AgilePress_Meta {
 		$agilepress_parent_story = ( ! empty( $agilepress_meta['parent_story'] ) ) ? $agilepress_meta['parent_story'] : '';
 		$agilepress_task_assignee = ( ! empty( $agilepress_meta['task_assignee'] ) ) ? $agilepress_meta['task_assignee'] : '';
 		$agilepress_priority = ( ! empty( $agilepress_meta['task_priority'] ) ) ? $agilepress_meta['task_priority'] : '';
+		$agilepress_target_date = ( ! empty( $agilepress_meta['target_date'] ) ) ? $agilepress_meta['target_date'] : '';
+		$agilepress_completed_date = ( ! empty( $agilepress_meta['completed_date'] ) ) ? $agilepress_meta['completed_date'] : '';
 
 		//nonce field for security
 		wp_nonce_field( 'task-meta-box-save', 'agilepress' );
@@ -323,7 +358,7 @@ class AgilePress_Meta {
 
 		 $task_metabox .= '</select></td></tr>';
 
- 		// start Status select box
+ 		// start Priority select box
  		$task_priority = array(
  			['post_name' => '5',
  			'post_title' => 'Critical'],
@@ -344,6 +379,12 @@ class AgilePress_Meta {
  			null,
  			$task_priority);
  		// end select box
+
+		$task_metabox .= '<tr>';
+		$task_metabox .= '<td>' .__('Target Date', 'agilepress').':</td><td><input type="date" name="agilepress_task[target_date]" value="'.esc_attr( $agilepress_target_date ).'" size="24" ' . $this->is_disabled() . '></td>';
+		$task_metabox .= '</tr><tr>';
+		$task_metabox .= '<td>' .__('Completed Date', 'agilepress').':</td><td><input type="date" name="agilepress_task[completed_date]" value="'.esc_attr( $agilepress_completed_date ).'" size="24" ' . $this->is_disabled() . '></td>';
+		$task_metabox .= '</tr>';
 
 	    //display the meta box shortcode legend section
 		if ($use_shortcodes) {

@@ -32,6 +32,79 @@ require_once plugin_dir_path( __FILE__ ) . '/agilepress-funcbar-class.php';
  */
 class AgilePress_Notes {
 
+	// getters and setters
+	public $id;
+	public function set_id($id) {
+		$this->id = $id;
+	}
+	public function get_id() {
+		return $this->id;
+	}
+
+	public $title;
+	public function set_title($title) {
+		$this->title = $title;
+	}
+	public function get_title() {
+		return $this->title;
+	}
+
+	public $text;
+	public function set_text($text) {
+		$this->text = $text;
+	}
+	public function get_text() {
+		return $this->text;
+	}
+
+	public $status;
+	public function set_status($status) {
+		$this->status = $status;
+	}
+	public function get_status() {
+		return $this->status;
+	}
+
+	public $board;
+	public function set_board($board) {
+		$this->board = $board;
+	}
+	public function get_board() {
+		return $this->board;
+	}
+
+	public $priority;
+	public function set_priority($priority) {
+		$this->priority = $priority;
+	}
+	public function get_priority() {
+		return $this->priority;
+	}
+
+	public $target_date;
+	public function set_target_date($target_date) {
+		$this->target_date = $target_date;
+	}
+	public function get_target_date() {
+		return $this->target_date;
+	}
+
+	public $completed_date;
+	public function set_completed_date($completed_date) {
+		$this->completed_date = $completed_date;
+	}
+	public function get_completed_date() {
+		return $this->completed_date;
+	}
+
+	public $assignee;
+	public function set_assignee($assignee) {
+		$this->assignee = $assignee;
+	}
+	public function get_assignee() {
+		return $this->assignee;
+	}
+	
 	/**
 	 * Produces...
 	 *
@@ -41,17 +114,11 @@ class AgilePress_Notes {
 	 * @param string $product_name The product internal name (not display name)
 	 * @return string $display A formated HTML string that displays the summary
 	 *
-	 * @global $wpdb
-	 *
-	 * @uses \wordpress\wpdb\get_results()
-	 * @uses \wordpress\get_post_meta()
-	 * @uses \wordpress\get_permalink()
-	 *
  	 * @author Ken Kitchen ken@vinlandmedia.com
 	 * @author Vinland Media, LLC.
 	 * @package AgilePress
 	 */
-	public function create_note($id = null, $title = null, $name = null, $text = null, $status = null, $board = null, $priority = null) {
+	public function create_note() {
 		// get saved options
 		$agilepress_options = get_option('agilepress_options');
 
@@ -61,7 +128,7 @@ class AgilePress_Notes {
 		}
 
 		// assign colors based on user preferences
-		switch ($status) {
+		switch ($this->status) {
 			case 'isepic':
 				$notecolor = $agilepress_options['agilepress_epic_color'] . 'note';
 				break;
@@ -111,24 +178,24 @@ class AgilePress_Notes {
 		$headerfont = 'notebody-' . $agilepress_options['agilepress_note_title_font'];
 		$detailfont = 'notebody-' . $agilepress_options['agilepress_note_body_font'];
 
-		$myFunctionBar = new AgilePress_FunctionBar($id);
+		$myFunctionBar = new AgilePress_FunctionBar($this->id);
 
-		if ((isset($priority)) && (!empty($priority))) {
-			switch ($priority) {
+		if ((isset($this->priority)) && (!empty($this->priority))) {
+			switch ($this->priority) {
 				case '5':
-					$priority_display = '(Critical)';
+					$priority_display = 'Critical /';
 					break;
 				case '4':
-					$priority_display = '(Major)';
+					$priority_display = 'Major /';
 					break;
 				case '3':
-					$priority_display = '(Normal)';
+					$priority_display = 'Normal /';
 					break;
 				case '2':
-					$priority_display = '(Minor)';
+					$priority_display = 'Minor /';
 					break;
 				case '1':
-					$priority_display = '(Trivial)';
+					$priority_display = 'Trivial /';
 					break;
 
 				default:
@@ -140,31 +207,109 @@ class AgilePress_Notes {
 			$priority_display = '';
 		}
 
-		if ((user_can(wp_get_current_user(), 'transition_tasks')) && ($board != 'sprint'))  {
-			if (($status == 'sendtosprint') && ($board == 'backlog')) {
-				$the_note = '<div id="' . $id . '" class="w3-card-4 w3-container default-margin ' . $notecolor . ' ' . $headerfont . ' sprintoverlay " ' .
-				 'draggable="true" ondragstart="drag(event)"><span class="'. $status .'">'
-					. $title . ' <span class="priority-text">' . $priority_display . '</span><p class="' . $detailfont . '">' . $text .
-					'</p></span>' . $myFunctionBar->create_function_bar($id, $status, $board) . '</div>';
+/*
+		if ((user_can(wp_get_current_user(), 'transition_tasks')) && ($this->board != 'sprint'))  {
+			if (($this->status == 'sendtosprint') && ($this->board == 'backlog')) {
+				$the_note = '<div id="' . $this->id . '" class="w3-card-4 w3-container default-margin ' . $notecolor . ' ' . $headerfont . ' sprintoverlay " ' .
+				 'draggable="true" ondragstart="drag(event)"><span class="'. $this->status .'">'
+					. $this->title . ' <span class="priority-text">' . $priority_display . '</span><br /><p class="' . $detailfont . '">' . $this->text .
+					'</p></span>' . $myFunctionBar->create_function_bar($this->id, $this->status, $this->board) . '</div>';
 			} else {
-				$the_note = '<div id="' . $id . '" class="w3-card-4 w3-container default-margin ' . $notecolor . ' ' . $headerfont . '" ' .
-				 'draggable="true" ondragstart="drag(event)"><span class="'. $status .'">'
-					. $title . ' <span class="priority-text">' . $priority_display . '</span><p class="' . $detailfont . '">' . $text .
-					'</p></span>' . $myFunctionBar->create_function_bar($id, $status, $board) . '</div>';
+				$the_note = '<div id="' . $this->id . '" class="w3-card-4 w3-container default-margin ' . $notecolor . ' ' . $headerfont . '" ' .
+				 'draggable="true" ondragstart="drag(event)"><span class="'. $this->status .'">'
+					. $this->title . ' <span class="priority-text">' . $priority_display . '</span> ' . $this->make_my_date($detailfont) . '<p class="' . $detailfont . '">' . $this->text .
+					'</p></span>' . $myFunctionBar->create_function_bar($this->id, $this->status, $this->board) . '</div>';
 			}
-		} elseif ((user_can(wp_get_current_user(), 'transition_tasks')) && ($status != 'sendtosprint')) {
-			$the_note = '<div id="' . $id . '" class="w3-card-4 w3-container default-margin ' . $notecolor . ' ' . $headerfont . '" ' .
-			 'draggable="true" ondragstart="drag(event)"><span class="'. $status .'">'
-				. $title . ' <span class="priority-text">' . $priority_display . '</span><p class="' . $detailfont . '">' . $text .
-				'</p></span>' . $myFunctionBar->create_function_bar($id, $status, $board) . '</div>';
+		} elseif ((user_can(wp_get_current_user(), 'transition_tasks')) && ($this->status != 'sendtosprint')) {
+			$the_note = '<div id="' . $this->id . '" class="w3-card-4 w3-container default-margin ' . $notecolor . ' ' . $headerfont . '" ' .
+			 'draggable="true" ondragstart="drag(event)"><span class="'. $this->status .'">'
+				. $this->title . ' <span class="priority-text">' . $priority_display . '</span><br /><p class="' . $detailfont . '">' . $this->text .
+				'</p></span>' . $myFunctionBar->create_function_bar($this->id, $this->status, $this->board) . '</div>';
 		} else {
-			$the_note = '<div id="' . $id . '" class="w3-card-4 w3-container w3-margin ' . $notecolor . ' ' . $headerfont . '" ' .
-			 'draggable="false"><span class="'. $status .'">'
-				. $title . '<p class="' . $detailfont . '">' . $text .
-				'</p></span>' . $myFunctionBar->create_function_bar($id, $status, $board) . '</div>';
+			$the_note = '<div id="' . $this->id . '" class="w3-card-4 w3-container w3-margin ' . $notecolor . ' ' . $headerfont . '" ' .
+			 'draggable="false"><span class="'. $this->status .'">'
+				. $this->title . '<p class="' . $detailfont . '">' . $this->text .
+				'</p></span>' . $myFunctionBar->create_function_bar($this->id, $this->status, $this->board) . '</div>';
+		}
+*/
+
+		$the_note = '<div id="' . $this->id
+		            . '" class="w3-card-4 w3-container default-margin ' . $notecolor . ' ' . $headerfont . ' '
+		            . $this->sprint_overlay($this->status, $this->board) . '" '
+		            . $this->is_draggable($this->status, $this->board) . '>'
+					. '<span class="' . $this->status .' priority-bar">' . $this->title . '</span>'
+		            . '<br /><br />'
+		            . '<p class="' . $detailfont . '">' . $this->text . '</p></span>'
+		            . '<br />'
+		            . ' '  . '<div class="priority-bar"><span class="priority-text">' . $priority_display
+		            . $this->make_my_date($this->status, $this->target_date, $this->completed_date) . '</span><br />';
+
+		if (('kanban' == $this->board) || (('sprint' == $this->board) && ('sendtosprint' != $this->status))) {
+			$the_note .= $this->show_assignee($this->assignee) . '</span><br />';
 		}
 
+		$the_note .= '</div><br />' . $myFunctionBar->create_function_bar($this->id, $this->status, $this->board)
+		            . '</div>';
+
 		return $the_note;
+	}
+
+	private function make_my_date($status, $target_date, $completed_date) {
+
+		if (('done' == $status) || ('iscomplete' == $status)) {
+			if ('' != $completed_date) {
+				$return_date = ' C: ' . $completed_date;
+			} else {
+				$return_date = ' not complete';
+			}
+		} else {
+			if ('' != $target_date) {
+				$return_date = ' T: ' . $target_date ;
+			} else {
+				$return_date = ' no target set';
+			}
+		}
+
+		return $return_date;
+
+	}
+
+	private function sprint_overlay($status, $board) {
+		if (($status == 'sendtosprint') && ($board == 'backlog')) {
+			$overlay = ' sprintoverlay ';
+		} else {
+			$overlay = ' ';
+		}
+
+		return $overlay;
+
+	}
+
+	private function show_assignee($assignee) {
+		if ('' == $assignee) {
+			$my_assignee = '#' . 'unassigned';
+		} else {
+			$my_assignee = '@' . $assignee;
+		}
+
+		return $my_assignee;
+
+	}
+
+	// todo this still needs to be brought up to previous functionality levels
+	private function is_draggable($status, $board) {
+		if (('sprint' == $board) && ('sendtosprint' == $status)) {
+			$draggable = ' draggable="false" ';
+		} elseif (1 == 1) {
+			if (user_can(wp_get_current_user(), 'transition_tasks')) {
+				$draggable =  ' draggable="true" ondragstart="drag(event)" ';
+			} else {
+				$draggable = ' draggable="false" ';
+			}
+		}
+
+		return $draggable;
+
 	}
 
 }

@@ -191,6 +191,9 @@ value="blue" <?php checked('blue', $agilepress_options['agilepress_done_color'],
     <option <?php selected('rock-salt', $agilepress_options['agilepress_note_title_font'], true) ?> value="rock-salt">Rock Salt</option>
     <option <?php selected('sacramento', $agilepress_options['agilepress_note_title_font'], true) ?> value="sacramento">Sacramento</option>
     <option <?php selected('shadows-into-light-two', $agilepress_options['agilepress_note_title_font'], true) ?> value="shadows-into-light-two">Shadows Into Light Two</option>
+        <option <?php selected('ledger', $agilepress_options['agilepress_note_title_font'], true) ?> value="ledger">Ledger</option>
+        <option <?php selected('nixie-one', $agilepress_options['agilepress_note_title_font'], true) ?> value="nixie-one">Nixie One</option>
+
     </select>
 <br><br>
     Google Font for Note Body:&nbsp;
@@ -206,6 +209,8 @@ value="blue" <?php checked('blue', $agilepress_options['agilepress_done_color'],
         <option <?php selected('rock-salt', $agilepress_options['agilepress_note_body_font'], true) ?> value="rock-salt">Rock Salt</option>
         <option <?php selected('sacramento', $agilepress_options['agilepress_note_body_font'], true) ?> value="sacramento">Sacramento</option>
         <option <?php selected('shadows-into-light-two', $agilepress_options['agilepress_note_body_font'], true) ?> value="shadows-into-light-two">Shadows Into Light Two</option>
+        <option <?php selected('ledger', $agilepress_options['agilepress_note_body_font'], true) ?> value="ledger">Ledger</option>
+        <option <?php selected('nixie-one', $agilepress_options['agilepress_note_body_font'], true) ?> value="nixie-one">Nixie One</option>
     </select>
 </fieldset>
 <fieldset class="settings-boxes">

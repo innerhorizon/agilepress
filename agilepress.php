@@ -15,7 +15,7 @@
  * Plugin Name:       AgilePress
  * Plugin URI:        https://agilepress.io/products/agilepress/
  * Description:       AgilePress brings Agile product/project management to WordPress.
- * Version:           1.538.5
+ * Version:           1.548.8
  * Author:            Vinland Media, LLC
  * Author URI:        https://vinlandmedia.com/
  * License:           GPL-2.0+
@@ -75,6 +75,10 @@ function activate_plugin_agilepress($network_wide) {
 		$myActivator->add_options();
 		$myActivator->add_custom_tables();
 	}
+
+
+	$current_user = wp_get_current_user();
+	$current_user->add_role('agilepress_admin');
 
 	// Development hook for other plugins
     do_action('agilepress_on_activation');
@@ -289,9 +293,6 @@ function agilepress_init($network_wide) {
 	$return_code = $myAgilePress_Init->setup_roles('agilepress_developer');
 	$return_code = $myAgilePress_Init->setup_roles('agilepress_user');
 	$return_code = $myAgilePress_Init->setup_roles('agilepress_viewer');
-
-	$current_user = wp_get_current_user();
-	$current_user->add_role('agilepress_admin');
 
 	// flush rewrite cache
     flush_rewrite_rules();
@@ -917,7 +918,7 @@ function agilepress_save_task_meta_box($post_id) {
 			$agilepress_task_data['task_priority'] = '2';
 		}
 
-        // save the meta box data as post metadata
+		// save the meta box data as post metadata
         update_post_meta($post_id, '_agilepress_task_data', $agilepress_task_data);
 
 		wp_set_object_terms($post_id, $agilepress_task_data['product'], 'task-products');
@@ -991,6 +992,15 @@ function agilepress_save_story_meta_box($post_id) {
 
         //use array map function to sanitize option values
         $agilepress_story_data = array_map('sanitize_text_field', $agilepress_story_data);
+
+		// set user
+		//$current_user = wp_get_current_user();
+		//$agilepress_story_data['story_assignee'] = $current_user->get('user_login');
+
+		if ((!isset($agilepress_story_data['story_priority'])) || (empty($agilepress_story_data['story_priority']))
+		    || ($agilepress_story_data['story_priority'] == '')) {
+			$agilepress_story_data['story_priority'] = '2';
+		}
 
         // save the meta box data as post metadata
         update_post_meta($post_id, '_agilepress_story_data', $agilepress_story_data);
@@ -1475,6 +1485,7 @@ function moveitem_ajax() {
 
 			$agilepress_story_meta['story_status'] = $status;
 			$agilepress_story_meta['story_sprint'] = '';
+			$agilepress_story_meta['completed_date'] = date("m/d/Y");
 
 			//$sibling_id = $agilepress_story_meta['sibling_id'];
 
@@ -1492,6 +1503,18 @@ function moveitem_ajax() {
 			$agilepress_task_meta = get_post_meta($id, '_agilepress_task_data', true);
 
 			$agilepress_task_meta['task_status'] = $status;
+
+			// set completed date
+			if ('done' == $status) {
+				$agilepress_task_meta['completed_date'] = date("Y-m-d");
+			} else {
+				$agilepress_task_meta['completed_date'] = null;
+			}
+
+			// set user
+			$current_user = wp_get_current_user();
+			$agilepress_task_meta['task_assignee'] = $current_user->get('user_login');
+
 			/*
 			if (isset($status)) {
 				$agilepress_task_meta['task_priority'] = $priority;

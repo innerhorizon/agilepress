@@ -319,10 +319,23 @@ class AgilePress_Boards {
 			$agilepress_sprint = ( ! empty( $agilepress_meta['sprint'] ) ) ? $agilepress_meta['sprint'] : '';
 			$agilepress_task_status = ( ! empty( $agilepress_meta['task_status'] ) ) ? $agilepress_meta['task_status'] : '';
 			$agilepress_task_priority = ( ! empty( $agilepress_meta['task_priority'] ) ) ? $agilepress_meta['task_priority'] : '';
+			$agilepress_task_assignee = ( ! empty( $agilepress_meta['task_assignee'] ) ) ? $agilepress_meta['task_assignee'] : '';
 			$agilepress_parent_story = ( ! empty( $agilepress_meta['parent_story'] ) ) ? $agilepress_meta['parent_story'] : '';
+			$agilepress_target_date = ( ! empty( $agilepress_meta['target_date'] ) ) ? $agilepress_meta['target_date'] : '';
+			$agilepress_completed_date = ( ! empty( $agilepress_meta['completed_date'] ) ) ? $agilepress_meta['completed_date'] : '';
 
 			if (($agilepress_task_status == 'todo') && (empty($agilepress_sprint))) {
-				$display_board .= $myKanbanNotes->create_note($task->id, $task->task_title, $task->task_name, $task->post_excerpt, 'todo', 'kanban', $agilepress_task_priority);
+				$myKanbanNotes->set_id($task->id);
+				$myKanbanNotes->set_title($task->task_title);
+				$myKanbanNotes->set_text($task->post_excerpt);
+				$myKanbanNotes->set_status('todo');
+				$myKanbanNotes->set_board('kanban');
+				$myKanbanNotes->set_priority($agilepress_task_priority);
+				$myKanbanNotes->set_assignee($agilepress_task_assignee);
+				$myKanbanNotes->set_target_date($agilepress_target_date);
+				$myKanbanNotes->set_completed_date($agilepress_completed_date);
+
+				$display_board .= $myKanbanNotes->create_note();
 			}
 		};
 
@@ -338,10 +351,23 @@ class AgilePress_Boards {
 			$agilepress_sprint = ( ! empty( $agilepress_meta['sprint'] ) ) ? $agilepress_meta['sprint'] : '';
 			$agilepress_task_status = ( ! empty( $agilepress_meta['task_status'] ) ) ? $agilepress_meta['task_status'] : '';
 			$agilepress_task_priority = ( ! empty( $agilepress_meta['task_priority'] ) ) ? $agilepress_meta['task_priority'] : '';
+			$agilepress_task_assignee = ( ! empty( $agilepress_meta['task_assignee'] ) ) ? $agilepress_meta['task_assignee'] : '';
 			$agilepress_parent_story = ( ! empty( $agilepress_meta['parent_story'] ) ) ? $agilepress_meta['parent_story'] : '';
+			$agilepress_target_date = ( ! empty( $agilepress_meta['target_date'] ) ) ? $agilepress_meta['target_date'] : '';
+			$agilepress_completed_date = ( ! empty( $agilepress_meta['completed_date'] ) ) ? $agilepress_meta['completed_date'] : '';
 
 			if (($agilepress_task_status == 'inprogress') && (empty($agilepress_sprint))) {
-				$display_board .= $myKanbanNotes->create_note($task->id, $task->task_title, $task->task_name, $task->post_excerpt, 'inprogress', 'kanban', $agilepress_task_priority);
+				$myKanbanNotes->set_id($task->id);
+				$myKanbanNotes->set_title($task->task_title);
+				$myKanbanNotes->set_text($task->post_excerpt);
+				$myKanbanNotes->set_status('inprogress');
+				$myKanbanNotes->set_board('kanban');
+				$myKanbanNotes->set_priority($agilepress_task_priority);
+				$myKanbanNotes->set_assignee($agilepress_task_assignee);
+				$myKanbanNotes->set_target_date($agilepress_target_date);
+				$myKanbanNotes->set_completed_date($agilepress_completed_date);
+
+				$display_board .= $myKanbanNotes->create_note();
 			}
 		};
 
@@ -357,10 +383,23 @@ class AgilePress_Boards {
 			$agilepress_sprint = ( ! empty( $agilepress_meta['sprint'] ) ) ? $agilepress_meta['sprint'] : '';
 			$agilepress_task_status = ( ! empty( $agilepress_meta['task_status'] ) ) ? $agilepress_meta['task_status'] : '';
 			$agilepress_task_priority = ( ! empty( $agilepress_meta['task_priority'] ) ) ? $agilepress_meta['task_priority'] : '';
+			$agilepress_task_assignee = ( ! empty( $agilepress_meta['task_assignee'] ) ) ? $agilepress_meta['task_assignee'] : '';
 			$agilepress_parent_story = ( ! empty( $agilepress_meta['parent_story'] ) ) ? $agilepress_meta['parent_story'] : '';
+			$agilepress_target_date = ( ! empty( $agilepress_meta['target_date'] ) ) ? $agilepress_meta['target_date'] : '';
+			$agilepress_completed_date = ( ! empty( $agilepress_meta['completed_date'] ) ) ? $agilepress_meta['completed_date'] : '';
 
 			if (($agilepress_task_status == 'intesting') && (empty($agilepress_sprint))) {
-				$display_board .= $myKanbanNotes->create_note($task->id, $task->task_title, $task->task_name, $task->post_excerpt, 'intesting', 'kanban', $agilepress_task_priority);
+				$myKanbanNotes->set_id($task->id);
+				$myKanbanNotes->set_title($task->task_title);
+				$myKanbanNotes->set_text($task->post_excerpt);
+				$myKanbanNotes->set_status('intesting');
+				$myKanbanNotes->set_board('kanban');
+				$myKanbanNotes->set_priority($agilepress_task_priority);
+				$myKanbanNotes->set_assignee($agilepress_task_assignee);
+				$myKanbanNotes->set_target_date($agilepress_target_date);
+				$myKanbanNotes->set_completed_date($agilepress_completed_date);
+
+				$display_board .= $myKanbanNotes->create_note();
 			}
 		};
 
@@ -376,10 +415,23 @@ class AgilePress_Boards {
 			$agilepress_sprint = ( ! empty( $agilepress_meta['sprint'] ) ) ? $agilepress_meta['sprint'] : '';
 			$agilepress_task_status = ( ! empty( $agilepress_meta['task_status'] ) ) ? $agilepress_meta['task_status'] : '';
 			$agilepress_task_priority = ( ! empty( $agilepress_meta['task_priority'] ) ) ? $agilepress_meta['task_priority'] : '';
+			$agilepress_task_assignee = ( ! empty( $agilepress_meta['task_assignee'] ) ) ? $agilepress_meta['task_assignee'] : '';
 			$agilepress_parent_story = ( ! empty( $agilepress_meta['parent_story'] ) ) ? $agilepress_meta['parent_story'] : '';
+			$agilepress_target_date = ( ! empty( $agilepress_meta['target_date'] ) ) ? $agilepress_meta['target_date'] : '';
+			$agilepress_completed_date = ( ! empty( $agilepress_meta['completed_date'] ) ) ? $agilepress_meta['completed_date'] : '';
 
 			if (($agilepress_task_status == 'done') && (empty($agilepress_sprint))) {
-				$display_board .= $myKanbanNotes->create_note($task->id, $task->task_title, $task->task_name, $task->post_excerpt, 'done', 'kanban', $agilepress_task_priority);
+				$myKanbanNotes->set_id($task->id);
+				$myKanbanNotes->set_title($task->task_title);
+				$myKanbanNotes->set_text($task->post_excerpt);
+				$myKanbanNotes->set_status('done');
+				$myKanbanNotes->set_board('kanban');
+				$myKanbanNotes->set_priority($agilepress_task_priority);
+				$myKanbanNotes->set_assignee($agilepress_task_assignee);
+				$myKanbanNotes->set_target_date($agilepress_target_date);
+				$myKanbanNotes->set_completed_date($agilepress_completed_date);
+
+				$display_board .= $myKanbanNotes->create_note();
 			}
 		};
 		$display_board .= '</div>';
@@ -429,9 +481,21 @@ class AgilePress_Boards {
 				$agilepress_product = (!empty($agilepress_meta['product'])) ? $agilepress_meta['product'] : '';
 				$agilepress_status = (!empty($agilepress_meta['story_status'])) ? $agilepress_meta['story_status'] : '';
 				$agilepress_sprint = (!empty($agilepress_meta['story_sprint'])) ? $agilepress_meta['story_sprint'] : '';
+				$agilepress_target_date = ( ! empty( $agilepress_meta['target_date'] ) ) ? $agilepress_meta['target_date'] : '';
+				$agilepress_completed_date = ( ! empty( $agilepress_meta['completed_date'] ) ) ? $agilepress_meta['completed_date'] : '';
+				$agilepress_story_priority = ( ! empty( $agilepress_meta['story_priority'] ) ) ? $agilepress_meta['story_priority'] : '';
 
 				if (($agilepress_status == 'sendtosprint') && ($agilepress_sprint == $sprint)) {
-					$display_board .= $mySprintNotes->create_note($activepbi_story->id, $activepbi_story->story_title, $activepbi_story->story_name, $activepbi_story->post_excerpt, 'sendtosprint', 'sprint');
+					$mySprintNotes->set_id($activepbi_story->id);
+					$mySprintNotes->set_title($activepbi_story->story_title);
+					$mySprintNotes->set_text($activepbi_story->post_excerpt);
+					$mySprintNotes->set_status('sendtosprint');
+					$mySprintNotes->set_board('sprint');
+					$mySprintNotes->set_priority($agilepress_story_priority);
+					$mySprintNotes->set_target_date($agilepress_target_date);
+					$mySprintNotes->set_completed_date($agilepress_completed_date);
+
+					$display_board .= $mySprintNotes->create_note();
 				}
 			};
 
@@ -448,10 +512,24 @@ class AgilePress_Boards {
 					$agilepress_product = ( ! empty( $agilepress_meta['product'] ) ) ? $agilepress_meta['product'] : '';
 					$agilepress_sprint = ( ! empty( $agilepress_meta['sprint'] ) ) ? $agilepress_meta['sprint'] : '';
 					$agilepress_task_status = ( ! empty( $agilepress_meta['task_status'] ) ) ? $agilepress_meta['task_status'] : '';
+					$agilepress_task_priority = ( ! empty( $agilepress_meta['task_priority'] ) ) ? $agilepress_meta['task_priority'] : '';
+					$agilepress_task_assignee = ( ! empty( $agilepress_meta['task_assignee'] ) ) ? $agilepress_meta['task_assignee'] : '';
 					$agilepress_parent_story = ( ! empty( $agilepress_meta['parent_story'] ) ) ? $agilepress_meta['parent_story'] : '';
+					$agilepress_target_date = ( ! empty( $agilepress_meta['target_date'] ) ) ? $agilepress_meta['target_date'] : '';
+					$agilepress_completed_date = ( ! empty( $agilepress_meta['completed_date'] ) ) ? $agilepress_meta['completed_date'] : '';
 
 					if (($agilepress_task_status == 'todo') && ($agilepress_sprint == $sprint)) {
-						$display_board .= $mySprintNotes->create_note($todo_task->id, $todo_task->task_title, $todo_task->task_name, $todo_task->post_excerpt, 'todo', 'sprint');
+						$mySprintNotes->set_id($todo_task->id);
+						$mySprintNotes->set_title($todo_task->task_title);
+						$mySprintNotes->set_text($todo_task->post_excerpt);
+						$mySprintNotes->set_status('todo');
+						$mySprintNotes->set_board('sprint');
+						$mySprintNotes->set_priority($agilepress_task_priority);
+						$mySprintNotes->set_assignee($agilepress_task_assignee);
+						$mySprintNotes->set_target_date($agilepress_target_date);
+						$mySprintNotes->set_completed_date($agilepress_completed_date);
+
+						$display_board .= $mySprintNotes->create_note();
 					}
 				};
 			}
@@ -469,10 +547,24 @@ class AgilePress_Boards {
 					$agilepress_product = ( ! empty( $agilepress_meta['product'] ) ) ? $agilepress_meta['product'] : '';
 					$agilepress_sprint = ( ! empty( $agilepress_meta['sprint'] ) ) ? $agilepress_meta['sprint'] : '';
 					$agilepress_task_status = ( ! empty( $agilepress_meta['task_status'] ) ) ? $agilepress_meta['task_status'] : '';
+					$agilepress_task_priority = ( ! empty( $agilepress_meta['task_priority'] ) ) ? $agilepress_meta['task_priority'] : '';
+					$agilepress_task_assignee = ( ! empty( $agilepress_meta['task_assignee'] ) ) ? $agilepress_meta['task_assignee'] : '';
 					$agilepress_parent_story = ( ! empty( $agilepress_meta['parent_story'] ) ) ? $agilepress_meta['parent_story'] : '';
+					$agilepress_target_date = ( ! empty( $agilepress_meta['target_date'] ) ) ? $agilepress_meta['target_date'] : '';
+					$agilepress_completed_date = ( ! empty( $agilepress_meta['completed_date'] ) ) ? $agilepress_meta['completed_date'] : '';
 
 					if (($agilepress_task_status == 'inprogress') && ($agilepress_sprint == $sprint)) {
-						$display_board .= $mySprintNotes->create_note($inprogress_task->id, $inprogress_task->task_title, $inprogress_task->task_name, $inprogress_task->post_excerpt, 'inprogress', 'sprint');
+						$mySprintNotes->set_id($inprogress_task->id);
+						$mySprintNotes->set_title($inprogress_task->task_title);
+						$mySprintNotes->set_text($inprogress_task->post_excerpt);
+						$mySprintNotes->set_status('inprogress');
+						$mySprintNotes->set_board('sprint');
+						$mySprintNotes->set_priority($agilepress_task_priority);
+						$mySprintNotes->set_assignee($agilepress_task_assignee);
+						$mySprintNotes->set_target_date($agilepress_target_date);
+						$mySprintNotes->set_completed_date($agilepress_completed_date);
+
+						$display_board .= $mySprintNotes->create_note();
 					}
 				};
 			}
@@ -490,10 +582,24 @@ class AgilePress_Boards {
 					$agilepress_product = ( ! empty( $agilepress_meta['product'] ) ) ? $agilepress_meta['product'] : '';
 					$agilepress_sprint = ( ! empty( $agilepress_meta['sprint'] ) ) ? $agilepress_meta['sprint'] : '';
 					$agilepress_task_status = ( ! empty( $agilepress_meta['task_status'] ) ) ? $agilepress_meta['task_status'] : '';
+					$agilepress_task_priority = ( ! empty( $agilepress_meta['task_priority'] ) ) ? $agilepress_meta['task_priority'] : '';
+					$agilepress_task_assignee = ( ! empty( $agilepress_meta['task_assignee'] ) ) ? $agilepress_meta['task_assignee'] : '';
 					$agilepress_parent_story = ( ! empty( $agilepress_meta['parent_story'] ) ) ? $agilepress_meta['parent_story'] : '';
+					$agilepress_target_date = ( ! empty( $agilepress_meta['target_date'] ) ) ? $agilepress_meta['target_date'] : '';
+					$agilepress_completed_date = ( ! empty( $agilepress_meta['completed_date'] ) ) ? $agilepress_meta['completed_date'] : '';
 
 					if (($agilepress_task_status == 'done') && ($agilepress_sprint == $sprint)) {
-						$display_board .= $mySprintNotes->create_note($done_task->id, $done_task->task_title, $done_task->task_name, $done_task->post_excerpt, 'done', 'sprint');
+						$mySprintNotes->set_id($done_task->id);
+						$mySprintNotes->set_title($done_task->task_title);
+						$mySprintNotes->set_text($done_task->post_excerpt);
+						$mySprintNotes->set_status('done');
+						$mySprintNotes->set_board('sprint');
+						$mySprintNotes->set_priority($agilepress_task_priority);
+						$mySprintNotes->set_assignee($agilepress_task_assignee);
+						$mySprintNotes->set_target_date($agilepress_target_date);
+						$mySprintNotes->set_completed_date($agilepress_completed_date);
+
+						$display_board .= $mySprintNotes->create_note();
 					}
 				};
 			}
@@ -552,10 +658,21 @@ class AgilePress_Boards {
 
 			$agilepress_product = (!empty($agilepress_meta['product'])) ? $agilepress_meta['product'] : '';
 			$agilepress_status = (!empty($agilepress_meta['story_status'])) ? $agilepress_meta['story_status'] : '';
+			$agilepress_target_date = ( ! empty( $agilepress_meta['target_date'] ) ) ? $agilepress_meta['target_date'] : '';
+			$agilepress_completed_date = ( ! empty( $agilepress_meta['completed_date'] ) ) ? $agilepress_meta['completed_date'] : '';
+			$agilepress_story_priority = ( ! empty( $agilepress_meta['story_priority'] ) ) ? $agilepress_meta['story_priority'] : '';
 
 			if ($agilepress_status == 'isepic') {
-				//$display_board .= $this->create_note($epic_story->id, $epic_story->story_title, $epic_story->story_name, $epic_story->post_excerpt, 'isepic');
-				$display_board .= $myStoryNotes->create_note($epic_story->id, $epic_story->story_title, $epic_story->story_name, $epic_story->post_excerpt, 'isepic', 'backlog');
+				$myStoryNotes->set_id($epic_story->id);
+				$myStoryNotes->set_title($epic_story->story_title);
+				$myStoryNotes->set_text($epic_story->post_excerpt);
+				$myStoryNotes->set_status('isepic');
+				$myStoryNotes->set_board('backlog');
+				$myStoryNotes->set_priority($agilepress_story_priority);
+				$myStoryNotes->set_target_date($agilepress_target_date);
+				$myStoryNotes->set_completed_date($agilepress_completed_date);
+
+				$display_board .= $myStoryNotes->create_note();
 			}
 		};
 
@@ -572,9 +689,21 @@ class AgilePress_Boards {
 
 			$agilepress_product = (!empty($agilepress_meta['product'])) ? $agilepress_meta['product'] : '';
 			$agilepress_status = (!empty($agilepress_meta['story_status'])) ? $agilepress_meta['story_status'] : '';
+			$agilepress_target_date = ( ! empty( $agilepress_meta['target_date'] ) ) ? $agilepress_meta['target_date'] : '';
+			$agilepress_completed_date = ( ! empty( $agilepress_meta['completed_date'] ) ) ? $agilepress_meta['completed_date'] : '';
+			$agilepress_story_priority = ( ! empty( $agilepress_meta['story_priority'] ) ) ? $agilepress_meta['story_priority'] : '';
 
 			if ($agilepress_status == 'isstory') {
-				$display_board .= $myStoryNotes->create_note($is_story->id, $is_story->story_title, $is_story->story_name, $is_story->post_excerpt, 'isstory', 'backlog');
+				$myStoryNotes->set_id($is_story->id);
+				$myStoryNotes->set_title($is_story->story_title);
+				$myStoryNotes->set_text($is_story->post_excerpt);
+				$myStoryNotes->set_status('isstory');
+				$myStoryNotes->set_board('backlog');
+				$myStoryNotes->set_priority($agilepress_story_priority);
+				$myStoryNotes->set_target_date($agilepress_target_date);
+				$myStoryNotes->set_completed_date($agilepress_completed_date);
+
+				$display_board .= $myStoryNotes->create_note();
 			}
 		};
 
@@ -592,9 +721,21 @@ class AgilePress_Boards {
 
 			$agilepress_product = (!empty($agilepress_meta['product'])) ? $agilepress_meta['product'] : '';
 			$agilepress_status = (!empty($agilepress_meta['story_status'])) ? $agilepress_meta['story_status'] : '';
+			$agilepress_target_date = ( ! empty( $agilepress_meta['target_date'] ) ) ? $agilepress_meta['target_date'] : '';
+			$agilepress_completed_date = ( ! empty( $agilepress_meta['completed_date'] ) ) ? $agilepress_meta['completed_date'] : '';
+			$agilepress_story_priority = ( ! empty( $agilepress_meta['story_priority'] ) ) ? $agilepress_meta['story_priority'] : '';
 
 			if ($agilepress_status == 'sendtosprint') {
-				$display_board .= $myStoryNotes->create_note($sendtosprint_task->id, $sendtosprint_task->story_title, $sendtosprint_task->story_name, $sendtosprint_task->post_excerpt, 'sendtosprint', 'backlog');
+				$myStoryNotes->set_id($sendtosprint_task->id);
+				$myStoryNotes->set_title($sendtosprint_task->story_title);
+				$myStoryNotes->set_text($sendtosprint_task->post_excerpt);
+				$myStoryNotes->set_status('sendtosprint');
+				$myStoryNotes->set_board('backlog');
+				$myStoryNotes->set_priority($agilepress_story_priority);
+				$myStoryNotes->set_target_date($agilepress_target_date);
+				$myStoryNotes->set_completed_date($agilepress_completed_date);
+
+				$display_board .= $myStoryNotes->create_note();
 			}
 		};
 
@@ -611,9 +752,21 @@ class AgilePress_Boards {
 
 			$agilepress_product = (!empty($agilepress_meta['product'])) ? $agilepress_meta['product'] : '';
 			$agilepress_status = (!empty($agilepress_meta['story_status'])) ? $agilepress_meta['story_status'] : '';
+			$agilepress_target_date = ( ! empty( $agilepress_meta['target_date'] ) ) ? $agilepress_meta['target_date'] : '';
+			$agilepress_completed_date = ( ! empty( $agilepress_meta['completed_date'] ) ) ? $agilepress_meta['completed_date'] : '';
+			$agilepress_story_priority = ( ! empty( $agilepress_meta['story_priority'] ) ) ? $agilepress_meta['story_priority'] : '';
 
 			if ($agilepress_status == 'iscomplete') {
-				$display_board .= $myStoryNotes->create_note($complete_story->id, $complete_story->story_title, $complete_story->story_name, $complete_story->post_excerpt, 'iscomplete', 'backlog');
+				$myStoryNotes->set_id($complete_story->id);
+				$myStoryNotes->set_title($complete_story->story_title);
+				$myStoryNotes->set_text($complete_story->post_excerpt);
+				$myStoryNotes->set_status('iscomplete');
+				$myStoryNotes->set_board('backlog');
+				$myStoryNotes->set_priority($agilepress_story_priority);
+				$myStoryNotes->set_target_date($agilepress_target_date);
+				$myStoryNotes->set_completed_date($agilepress_completed_date);
+
+				$display_board .= $myStoryNotes->create_note();
 			}
 		};
 		$display_board .= '</div>';

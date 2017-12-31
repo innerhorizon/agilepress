@@ -30,5 +30,7 @@ namespace vinlandmedia\agilepress;
 <p>This is the front-end part. As long as you now have a product and at least one task associated with said product, you can jump into the board action. Go to your list of products and copy the shortcode for the Kanban board. Create a new WordPress page, paste in the Kanban shortcode, and view the page. Viola! You have a Kanban board for your product/project.</p>
 <p>Go back to the WordPress admin panel and add the rest of your tasks (at least all of the tasks you can think of, for now). From the board notes - from the page view - you can change task settings, make comments, view attachments, and - of course - drag the notes to other columns as your tasks progress.</p>
 <p>Now... get to work on that deck! (Or term paper, or software product, or whatever.) And if you get stuck, visit <a href="https://agilepress.io/documentation/" target="_blank">the docs on our web site</a> or <a href="https://agilepress.io/contact/" target="_blank">hit us up with your questions</a>.</p>
-<p>Thank you for using AgilePress!</p>
+    <p>If you like AgilePress, please consider leaving us a <a href="https://wordpress.org/plugins/agilepress/#reviews" target="_blank">postive review</a>... it helps us, which in turn will help our users.</p>
+    <p>If you have problems with AgilePress, or would like to suggest enhancements, please <a href="https://wordpress.org/support/plugin/agilepress" target="_blank">reach out to us</a> and we'll do our best to help you out.</p>
+    <p>Thank you for using AgilePress!</p>
 </div>

@@ -247,8 +247,12 @@ class AgilePress_Notes {
 		            . $this->is_draggable($this->status, $this->board) . '>'
 					. '<span class="' . $this->status .' priority-bar">' . $this->title;
 
-		if (('isstory' == $this->status) && ('backlog' == $this->board) && ('' != $this->parent)) {
-			$the_note .= ' (' . $this->parent . ')';
+		if ('' != $this->parent) {
+			if (('isstory' == $this->status) && ('backlog' == $this->board)) {
+				$the_note .= ' (' . $this->parent . ')';
+			} elseif (('sendtosprint' != $this->status) && ('sprint' == $this->board) ) {
+				$the_note .= ' (' . $this->parent . ')';
+			}
 		}
 
 		$the_note .= '</span>'

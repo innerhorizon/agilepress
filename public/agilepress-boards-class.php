@@ -528,6 +528,7 @@ class AgilePress_Boards {
 						$mySprintNotes->set_assignee($agilepress_task_assignee);
 						$mySprintNotes->set_target_date($agilepress_target_date);
 						$mySprintNotes->set_completed_date($agilepress_completed_date);
+						$mySprintNotes->set_parent($agilepress_parent_story);
 
 						$display_board .= $mySprintNotes->create_note();
 					}
@@ -563,6 +564,7 @@ class AgilePress_Boards {
 						$mySprintNotes->set_assignee($agilepress_task_assignee);
 						$mySprintNotes->set_target_date($agilepress_target_date);
 						$mySprintNotes->set_completed_date($agilepress_completed_date);
+						$mySprintNotes->set_parent($agilepress_parent_story);
 
 						$display_board .= $mySprintNotes->create_note();
 					}
@@ -598,6 +600,7 @@ class AgilePress_Boards {
 						$mySprintNotes->set_assignee($agilepress_task_assignee);
 						$mySprintNotes->set_target_date($agilepress_target_date);
 						$mySprintNotes->set_completed_date($agilepress_completed_date);
+						$mySprintNotes->set_parent($agilepress_parent_story);
 
 						$display_board .= $mySprintNotes->create_note();
 					}

@@ -104,6 +104,14 @@ class AgilePress_Notes {
 	public function get_assignee() {
 		return $this->assignee;
 	}
+
+	public $parent;
+	public function set_parent($parent) {
+		$this->parent = $parent;
+	}
+	public function get_parent() {
+		return $this->parent;
+	}
 	
 	/**
 	 * Produces...
@@ -237,7 +245,13 @@ class AgilePress_Notes {
 		            . '" class="w3-card-4 w3-container default-margin ' . $notecolor . ' ' . $headerfont . ' '
 		            . $this->sprint_overlay($this->status, $this->board) . '" '
 		            . $this->is_draggable($this->status, $this->board) . '>'
-					. '<span class="' . $this->status .' priority-bar">' . $this->title . '</span>'
+					. '<span class="' . $this->status .' priority-bar">' . $this->title;
+
+		if (('isstory' == $this->status) && ('backlog' == $this->board) && ('' != $this->parent)) {
+			$the_note .= ' (' . $this->parent . ')';
+		}
+
+		$the_note .= '</span>'
 		            . '<br /><br />'
 		            . '<p class="' . $detailfont . '">' . $this->text . '</p></span>'
 		            . '<br />'

@@ -15,7 +15,7 @@
  * Plugin Name:       AgilePress
  * Plugin URI:        https://agilepress.io/products/agilepress/
  * Description:       AgilePress brings Agile product/project management to WordPress.
- * Version:           1.548.8
+ * Version:           1.602.7
  * Author:            Vinland Media, LLC
  * Author URI:        https://vinlandmedia.com/
  * License:           GPL-2.0+

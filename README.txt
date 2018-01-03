@@ -4,7 +4,7 @@ Donate link: https://agilepress.io/
 Tags: agile, scrum, kanban, task management, product management, project management, to-do
 Requires at least: 4.8
 Tested up to: 4.8.3
-Stable tag: 1.548.8
+Stable tag: 1.602.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -76,6 +76,18 @@ Thank you for choosing AgilePress!
 
 == Changelog ==
 
+= 1.602.7 =
+* Target dates can now be added to tasks (user requested feature);
+* Dragging a note to either the sprint or kanban "done" columns will set a completion date (this can be manually updated as well);
+* Dragging a note "assigns" the task to the person who moved it (this can be manually updated when necessary);
+* Target date or completion date (whichever is applicable at the time) are now displayed on notes;
+* The assignee is now displayed on notes where applicable;
+* Priorities (formally only available on tasks) have been incorporated into stories;
+* Font sizes were made consistent (relative to one another, as some were really large and others very small);
+* The "In Sprint" overlay text (for backlog items that have been sent to sprint) has been lightened to improve visibility of underlying text;
+* Note headings now always use a bold font-weight to better distinguish from note text (especially when the same font is being used for both);
+* Fixed a bug that was causing all users to get the "AgilePress Admin" responsibility by default.
+
 = 1.548.8 =
 * Updated CSS and made some visual tweaks to the various help/settings pages;
 * Fixed some warnings shown by PHPStorm;
@@ -137,4 +149,4 @@ We strongly recommend:
 
 Your feedback is valuable to us; please let us know what features you might like to see or of any issue that you encounter.
 
-Also, please make sure you visit our web site at https://agilepress.io for full product documentation.
+Also, please make sure you visit our web site at https://agilepress.io for extensive (albeit still in-progress!) product documentation.

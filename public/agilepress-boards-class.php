@@ -692,6 +692,7 @@ class AgilePress_Boards {
 			$agilepress_target_date = ( ! empty( $agilepress_meta['target_date'] ) ) ? $agilepress_meta['target_date'] : '';
 			$agilepress_completed_date = ( ! empty( $agilepress_meta['completed_date'] ) ) ? $agilepress_meta['completed_date'] : '';
 			$agilepress_story_priority = ( ! empty( $agilepress_meta['story_priority'] ) ) ? $agilepress_meta['story_priority'] : '';
+			$agilepress_story_parent = ( ! empty( $agilepress_meta['parent_epic'] ) ) ? $agilepress_meta['parent_epic'] : '';
 
 			if ($agilepress_status == 'isstory') {
 				$myStoryNotes->set_id($is_story->id);
@@ -702,6 +703,7 @@ class AgilePress_Boards {
 				$myStoryNotes->set_priority($agilepress_story_priority);
 				$myStoryNotes->set_target_date($agilepress_target_date);
 				$myStoryNotes->set_completed_date($agilepress_completed_date);
+				$myStoryNotes->set_parent($agilepress_story_parent);
 
 				$display_board .= $myStoryNotes->create_note();
 			}

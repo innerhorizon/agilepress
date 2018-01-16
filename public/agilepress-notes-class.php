@@ -215,31 +215,6 @@ class AgilePress_Notes {
 			$priority_display = '';
 		}
 
-/*
-		if ((user_can(wp_get_current_user(), 'transition_tasks')) && ($this->board != 'sprint'))  {
-			if (($this->status == 'sendtosprint') && ($this->board == 'backlog')) {
-				$the_note = '<div id="' . $this->id . '" class="w3-card-4 w3-container default-margin ' . $notecolor . ' ' . $headerfont . ' sprintoverlay " ' .
-				 'draggable="true" ondragstart="drag(event)"><span class="'. $this->status .'">'
-					. $this->title . ' <span class="priority-text">' . $priority_display . '</span><br /><p class="' . $detailfont . '">' . $this->text .
-					'</p></span>' . $myFunctionBar->create_function_bar($this->id, $this->status, $this->board) . '</div>';
-			} else {
-				$the_note = '<div id="' . $this->id . '" class="w3-card-4 w3-container default-margin ' . $notecolor . ' ' . $headerfont . '" ' .
-				 'draggable="true" ondragstart="drag(event)"><span class="'. $this->status .'">'
-					. $this->title . ' <span class="priority-text">' . $priority_display . '</span> ' . $this->make_my_date($detailfont) . '<p class="' . $detailfont . '">' . $this->text .
-					'</p></span>' . $myFunctionBar->create_function_bar($this->id, $this->status, $this->board) . '</div>';
-			}
-		} elseif ((user_can(wp_get_current_user(), 'transition_tasks')) && ($this->status != 'sendtosprint')) {
-			$the_note = '<div id="' . $this->id . '" class="w3-card-4 w3-container default-margin ' . $notecolor . ' ' . $headerfont . '" ' .
-			 'draggable="true" ondragstart="drag(event)"><span class="'. $this->status .'">'
-				. $this->title . ' <span class="priority-text">' . $priority_display . '</span><br /><p class="' . $detailfont . '">' . $this->text .
-				'</p></span>' . $myFunctionBar->create_function_bar($this->id, $this->status, $this->board) . '</div>';
-		} else {
-			$the_note = '<div id="' . $this->id . '" class="w3-card-4 w3-container w3-margin ' . $notecolor . ' ' . $headerfont . '" ' .
-			 'draggable="false"><span class="'. $this->status .'">'
-				. $this->title . '<p class="' . $detailfont . '">' . $this->text .
-				'</p></span>' . $myFunctionBar->create_function_bar($this->id, $this->status, $this->board) . '</div>';
-		}
-*/
 
 		$the_note = '<div id="' . $this->id
 		            . '" class="w3-card-4 w3-container default-margin ' . $notecolor . ' ' . $headerfont . ' '

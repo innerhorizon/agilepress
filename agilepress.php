@@ -1280,6 +1280,7 @@ function agilepress_main($atts)
 		}
 	//}
 
+	// primary security determination made here
 	if ((!is_user_logged_in()) && (!$public_board)) {
 		$display_board = "You must be logged in to view this board.";
 	} elseif ((!user_can(wp_get_current_user(), 'transition_tasks')) &&
